@@ -1,0 +1,14 @@
+include: package:flutter_lints/flutter.yaml
+
+linter:
+  rules:
+    - prefer_const_constructors  # Enforce using 'const' where possible
+    - prefer_const_literals_to_create_immutables  # Use const for lists/maps/sets
+    - prefer_const_declarations  # Use const for variable declarations when possible
+    - avoid_unnecessary_containers  # Avoid wrapping widgets in redundant Containers
+    - always_use_package_imports  # Ensure imports use package: syntax
+    - prefer_single_quotes  # Enforce single quotes for strings
+    - sort_child_properties_last  # Keep child at the end in widget constructors
+    - use_super_parameters  # Use super constructor parameters where possible
+    # avoid_print: false  # Uncomment to disable the `avoid_print` rule
+    # prefer_single_quotes: true  # Uncomment to enable the `prefer_single_quotes` rule

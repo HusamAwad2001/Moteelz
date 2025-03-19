@@ -1,0 +1,11 @@
+{
+    "General": {
+        "connectionTimeout": "Connection timed out. Please try again.",
+        "sendTimeout": "Request timed out while sending. Please check your connection and try again.",
+        "receiveTimeout": "Response timed out. Please check your connection and try again.",
+        "badCertificate": "Invalid security certificate. Connection aborted.",
+        "canceledRequest": "Request has been canceled.",
+        "connectionError": "No internet connection detected. Please check your connection.",
+        "unknownError": "Something went wrong. Please try again."
+    }
+}
