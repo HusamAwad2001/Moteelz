@@ -1,7 +1,8 @@
 class EndPoints {
-  static String baseUrl = 'https://api.example.com';
+  static const String baseUrl = 'https://stage-api-v2.moteelz.com/api/v1';
+  static const String wallet = '/wallets';
 }
 
 class ApiKeys {
-  static String token = 'token';
+  static const String data = 'data';
 }
