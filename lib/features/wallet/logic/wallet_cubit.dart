@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:moteelz/features/wallet/data/models/wallet_model.dart';
@@ -11,11 +10,7 @@ class WalletCubit extends Cubit<WalletState> {
   WalletCubit(this.walletsRepo)
       : super(const WalletState(status: WalletStatus.initial));
 
-  final formKey = GlobalKey<FormState>();
-  final phoneController = TextEditingController();
-  final passwordController = TextEditingController();
-
-  void login() async {
+  void getWallet() async {
     emit(const WalletState(status: WalletStatus.loading));
     final result = await walletsRepo.getWallet();
     result.fold(

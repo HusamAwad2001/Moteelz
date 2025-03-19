@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
-import '../config/theming/colors.dart';
+import 'package:moteelz/core/config/theming/colors.dart';
 
 abstract class AppLoadingWidgetService {
   static OverlayEntry? _overlayEntry;
@@ -37,11 +37,9 @@ class AppLoadingWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SpinKitSpinningLines(
+    return SpinKitFadingCube(
       color: ColorsManager.primary,
-      lineWidth: 3,
-      duration: const Duration(seconds: 1),
-      itemCount: 2,
+      duration: const Duration(seconds: 2),
       size: size ?? 50,
     );
   }

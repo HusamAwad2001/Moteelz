@@ -7,5 +7,11 @@
         "canceledRequest": "Request has been canceled.",
         "connectionError": "No internet connection detected. Please check your connection.",
         "unknownError": "Something went wrong. Please try again."
+    },
+    "start_price": "Price starts from: ",
+    "nights": {
+        "one": "{} night",
+        "few": "{} nights",
+        "other": "{} nights"
     }
 }

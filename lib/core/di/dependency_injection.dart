@@ -1,6 +1,9 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
-import '../networking/api/dio_consumer.dart';
+import 'package:moteelz/features/wallet/data/repos/wallets_repo.dart';
+import 'package:moteelz/features/wallet/data/repos/wallets_repo_impl.dart';
+import 'package:moteelz/features/wallet/logic/wallet_cubit.dart';
+import 'package:moteelz/core/networking/api/dio_consumer.dart';
 
 final getIt = GetIt.instance;
 
@@ -20,9 +23,9 @@ Future<void> setupGetIt() async {
     () => DioConsumer(dio: getIt<Dio>()),
   );
 
-  // SignUp
-  // _registerModule<SignUpRepo, SignUpCubit>(
-  //   (dioConsumer) => SignUpRepo(api: dioConsumer),
-  //   (repo) => SignUpCubit(repo),
-  // );
+  // Wallet
+  _registerModule<WalletsRepo, WalletCubit>(
+    (dioConsumer) => WalletsRepoImpl(dioConsumer),
+    (repo) => WalletCubit(repo),
+  );
 }

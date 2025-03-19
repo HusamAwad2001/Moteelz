@@ -23,6 +23,12 @@ class CodegenLoader extends AssetLoader{
     "canceledRequest": "Request has been canceled.",
     "connectionError": "No internet connection detected. Please check your connection.",
     "unknownError": "Something went wrong. Please try again."
+  },
+  "start_price": "Price starts from: ",
+  "nights": {
+    "one": "{} night",
+    "few": "{} nights",
+    "other": "{} nights"
   }
 };
 static const Map<String,dynamic> _ar = {
@@ -34,6 +40,15 @@ static const Map<String,dynamic> _ar = {
     "canceledRequest": "تم إلغاء الطلب",
     "connectionError": "لا يوجد اتصال بالإنترنت، يرجى التحقق من الاتصال",
     "unknownError": "حدث خطأ ما، يرجى المحاولة مرة أخرى"
+  },
+  "start_price": " السعر يبدأ من:",
+  "nights": {
+    "zero": "لا ليالٍ",
+    "one": "ليلة",
+    "two": "ليلتين",
+    "few": "{} ليالي",
+    "many": "{} ليالي",
+    "other": "{} ليالي"
   }
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"en": _en, "ar": _ar};

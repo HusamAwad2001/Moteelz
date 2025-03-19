@@ -1,16 +1,11 @@
 part of '../../wallet_screen.dart';
 
 class _CardFeatures extends StatelessWidget {
-  const _CardFeatures();
+  final List<FeaturesFavorites> features;
+  const _CardFeatures({required this.features});
 
   @override
   Widget build(BuildContext context) {
-    final features = [
-      'إهداء الليالي للعائلة والأصقاء',
-      'الحجز في أكثر من دولة',
-      'تثبيت الأسعار طول فترة صلاحية المحفظة',
-    ];
-
     return Column(
       spacing: 8.h,
       children: features.map((feature) {
@@ -20,7 +15,10 @@ class _CardFeatures extends StatelessWidget {
             AppImage(path: AppIcons.checkCircle, width: 16.w),
             horizontalSpace(4),
             Expanded(
-              child: Text(feature, style: TextStyles.font14Black4EMedium),
+              child: Text(
+                feature.name?.trim() ?? '',
+                style: TextStyles.font14Black4EMedium,
+              ),
             ),
           ],
         );

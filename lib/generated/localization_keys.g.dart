@@ -11,5 +11,7 @@ abstract class  LocaleKeys {
   static const General_connectionError = 'General.connectionError';
   static const General_unknownError = 'General.unknownError';
   static const General = 'General';
+  static const start_price = 'start_price';
+  static const nights = 'nights';
 
 }

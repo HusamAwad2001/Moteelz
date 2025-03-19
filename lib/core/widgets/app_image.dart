@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:moteelz/core/helpers/extensions/check_null_extension.dart';
+import 'package:moteelz/core/helpers/strings/app_images.dart';
 
 import 'package:moteelz/core/widgets/app_loading_widget_service.dart';
 
@@ -53,11 +54,17 @@ class AppImage extends StatelessWidget {
         fit: fit,
         width: width,
         height: height,
-        placeholder: (context, url) => const AppLoadingWidget(),
+        placeholder: (context, url) => AppImage(
+          path: AppImages.appLogo,
+          fit: BoxFit.contain,
+          width: double.infinity,
+          height: 150.h,
+        ),
         errorWidget: (context, url, error) => AppImage(
-          path: '',
-          width: 24.w,
-          height: 24.h,
+          path: AppImages.appLogo,
+          fit: BoxFit.contain,
+          width: double.infinity,
+          height: 150.h,
         ),
       );
     }
