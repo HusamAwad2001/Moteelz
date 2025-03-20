@@ -1,17 +1,17 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'wallet/wallet_category.dart';
+part of 'features_favorites.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-WalletCategory _$WalletCategoryFromJson(Map<String, dynamic> json) =>
-    WalletCategory(
+FeaturesFavorites _$FeaturesFavoritesFromJson(Map<String, dynamic> json) =>
+    FeaturesFavorites(
       name: json['name'] as String?,
     );
 
-Map<String, dynamic> _$WalletCategoryToJson(WalletCategory instance) =>
+Map<String, dynamic> _$FeaturesFavoritesToJson(FeaturesFavorites instance) =>
     <String, dynamic>{
       'name': instance.name,
     };

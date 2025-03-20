@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'wallet/wallet_days.dart';
+part of 'wallet_days.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
