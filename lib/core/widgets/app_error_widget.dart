@@ -17,13 +17,14 @@ class AppErrorWidget extends StatelessWidget {
       padding: const EdgeInsets.all(8),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
         spacing: 8.h,
         children: [
-          Text(
-            message,
-            textAlign: TextAlign.center,
-            style: TextStyles.font16BlackMedium,
+          Center(
+            child: Text(
+              message,
+              textAlign: TextAlign.center,
+              style: TextStyles.font16BlackMedium,
+            ),
           ),
           IconButton(
             onPressed: onRefresh,

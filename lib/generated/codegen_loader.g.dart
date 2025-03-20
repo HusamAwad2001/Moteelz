@@ -35,7 +35,8 @@ class CodegenLoader extends AssetLoader{
   "country": "Country",
   "clear_all": "Clear All",
   "price": "Price",
-  "empty_wallets": "No wallets found"
+  "empty_wallets": "No wallets found",
+  "empty_countries": "No countries found"
 };
 static const Map<String,dynamic> _ar = {
   "General": {
@@ -61,7 +62,8 @@ static const Map<String,dynamic> _ar = {
   "country": "الدولة",
   "clear_all": "محو الكل",
   "price": "السعر",
-  "empty_wallets": "لا يوجد حسابات متاحة"
+  "empty_wallets": "لا يوجد حسابات متاحة",
+  "empty_countries": "لا يوجد دول متاحة"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"en": _en, "ar": _ar};
 }

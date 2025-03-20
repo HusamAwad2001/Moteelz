@@ -37,10 +37,18 @@ class AppLoadingWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SpinKitFadingCube(
-      color: ColorsManager.primary,
-      duration: const Duration(seconds: 2),
-      size: size ?? 50,
+    return Container(
+      width: 100,
+      height: 100,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(16),
+      ),
+      child: SpinKitFadingCube(
+        color: ColorsManager.primary,
+        duration: const Duration(seconds: 2),
+        size: size ?? 50,
+      ),
     );
   }
 }

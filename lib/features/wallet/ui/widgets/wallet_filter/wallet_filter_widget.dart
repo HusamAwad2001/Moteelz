@@ -1,7 +1,8 @@
 part of '../../wallet_screen.dart';
 
 class WalletFilterWidget extends StatefulWidget {
-  const WalletFilterWidget({super.key});
+  final List<String>? countries;
+  const WalletFilterWidget({super.key, required this.countries});
 
   @override
   State<WalletFilterWidget> createState() => _WalletFilterWidgetState();
@@ -10,7 +11,7 @@ class WalletFilterWidget extends StatefulWidget {
 class _WalletFilterWidgetState extends State<WalletFilterWidget> {
   late RangeValues _priceRange;
 
-  final items = ['الولايات المتحدة', 'مصر', 'السعودية', 'الامارات', 'قطر'];
+  final items = ['مصر', 'السعودية', 'الامارات', 'قطر'];
   String? selectedValue;
 
   @override
@@ -37,8 +38,9 @@ class _WalletFilterWidgetState extends State<WalletFilterWidget> {
               ),
               verticalSpace(16),
               _CountryFilter(
-                selectedValue: selectedValue ?? items[0],
-                items: items,
+                selectedValue:
+                    selectedValue ?? widget.countries?[0] ?? items[0],
+                items: widget.countries ?? items,
                 onChanged: (value) {
                   setState(() {
                     selectedValue = value!;
@@ -52,7 +54,7 @@ class _WalletFilterWidgetState extends State<WalletFilterWidget> {
         AppButton(
           label: context.tr(LocaleKeys.search),
           borderRadius: 0,
-          onTap: onSearch,
+          onTap: onFilter,
         ),
       ],
     );
@@ -60,6 +62,7 @@ class _WalletFilterWidgetState extends State<WalletFilterWidget> {
 
   void _resetPriceRange() {
     final walletCubit = context.read<WalletCubit>();
+    // ignore: invalid_use_of_visible_for_testing_member, invalid_use_of_protected_member
     walletCubit.emit(
       walletCubit.state.copyWith(
         wallets: walletCubit.state.wallets,
@@ -71,7 +74,7 @@ class _WalletFilterWidgetState extends State<WalletFilterWidget> {
     context.pop();
   }
 
-  void onSearch() {
+  void onFilter() {
     final walletCubit = context.read<WalletCubit>();
     final filteredWallets = walletCubit.state.wallets?.where((wallet) {
       return (wallet.price ?? 0.0) >= _priceRange.start &&
@@ -87,6 +90,7 @@ class _WalletFilterWidgetState extends State<WalletFilterWidget> {
       return;
     }
     context.pop();
+    // ignore: invalid_use_of_visible_for_testing_member, invalid_use_of_protected_member
     walletCubit.emit(
       walletCubit.state.copyWith(
         wallets: walletCubit.state.wallets,

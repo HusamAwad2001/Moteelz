@@ -19,5 +19,6 @@
     "country": "Country",
     "clear_all": "Clear All",
     "price": "Price",
-    "empty_wallets": "No wallets found"
+    "empty_wallets": "No wallets found",
+    "empty_countries": "No countries found"
 }

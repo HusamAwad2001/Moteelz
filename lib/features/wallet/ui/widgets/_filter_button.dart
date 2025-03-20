@@ -7,16 +7,9 @@ class _FilterButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<WalletCubit, WalletState>(
       builder: (context, state) {
-        if (state.isSuccess && (state.wallets?.isNotEmpty ?? false)) {
+        if (state.isSuccess || (state.wallets?.isNotEmpty ?? false)) {
           return GestureDetector(
-            onTap: () => AppDialog.show(
-              context,
-              padding: EdgeInsets.zero,
-              content: BlocProvider.value(
-                value: getIt<WalletCubit>(),
-                child: const WalletFilterWidget(),
-              ),
-            ),
+            onTap: () => _showFilterDialog(context),
             child: Container(
               padding: EdgeInsets.symmetric(vertical: 12.h, horizontal: 25.w),
               decoration: BoxDecoration(
@@ -49,5 +42,28 @@ class _FilterButton extends StatelessWidget {
         }
       },
     );
+  }
+
+  void _showFilterDialog(BuildContext context) async {
+    final walletCubit = context.read<WalletCubit>();
+    var countries = getIt<WalletCubit>().state.countries ?? [];
+
+    if (countries.isEmpty) {
+      await walletCubit.getCountries(context);
+      countries = getIt<WalletCubit>().state.countries ?? [];
+    }
+
+    if (countries.isNotEmpty) {
+      AppDialog.show(
+        context,
+        padding: EdgeInsets.zero,
+        content: BlocProvider.value(
+          value: walletCubit,
+          child: WalletFilterWidget(
+            countries: countries.map((e) => e.name ?? '').toList(),
+          ),
+        ),
+      );
+    }
   }
 }
