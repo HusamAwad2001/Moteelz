@@ -26,7 +26,7 @@ class _PaymentView extends StatelessWidget {
           ),
         ),
         AppButton(
-          label: 'إدفع الآن',
+          label: context.tr(LocaleKeys.pay_now),
           borderRadius: 0,
           onTap: () {},
         ),

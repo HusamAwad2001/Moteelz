@@ -31,6 +31,11 @@ class _DetailsViewState extends State<_DetailsView> {
                   setState(() {
                     selectedNightIndex = index;
                   });
+                  final cubit = getIt<WalletDetailsCubit>();
+                  // ignore: invalid_use_of_protected_member, invalid_use_of_visible_for_testing_member
+                  cubit.emit(cubit.state.copyWith(
+                    nightSelectedIndex: selectedNightIndex,
+                  ));
                 },
               ),
               _CardDescription(widget.wallet),
@@ -42,7 +47,7 @@ class _DetailsViewState extends State<_DetailsView> {
           ),
         ),
         AppButton(
-          label: 'المتابعة للدفع',
+          label: context.tr(LocaleKeys.continue_to_pay),
           icon: Icon(
             Icons.arrow_forward,
             size: 24.w,

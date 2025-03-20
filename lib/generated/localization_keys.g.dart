@@ -23,5 +23,19 @@ abstract class  LocaleKeys {
   static const number_of_nights = 'number_of_nights';
   static const card_description = 'card_description';
   static const card_features = 'card_features';
+  static const continue_to_pay = 'continue_to_pay';
+  static const pay_now = 'pay_now';
+  static const discount_coupon = 'discount_coupon';
+  static const enter_discount_coupon = 'enter_discount_coupon';
+  static const apply = 'apply';
+  static const amount_details = 'amount_details';
+  static const vat = 'vat';
+  static const total_amount = 'total_amount';
+  static const payment_details = 'payment_details';
+  static const credit_or_debit_card = 'credit_or_debit_card';
+  static const card_name = 'card_name';
+  static const card_number = 'card_number';
+  static const expiry_date = 'expiry_date';
+  static const cvc = 'cvc';
 
 }

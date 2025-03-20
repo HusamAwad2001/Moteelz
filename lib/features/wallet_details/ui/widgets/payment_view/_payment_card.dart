@@ -65,7 +65,7 @@ class _PaymentCardDetails extends StatelessWidget {
           style: TextStyles.font14Grey9CBold,
         ),
         Text(
-          '3,750 ر.س',
+          '3,750 ﷼',
           style: TextStyles.font16PrimaryBold,
         ),
       ],

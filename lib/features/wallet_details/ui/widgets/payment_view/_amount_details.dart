@@ -41,7 +41,7 @@ class _AmountDetails extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'تفاصيل المبلغ',
+          context.tr(LocaleKeys.amount_details),
           style: TextStyles.font16DarkBlueSemiBold,
         ),
         verticalSpace(8),
@@ -54,19 +54,19 @@ class _AmountDetails extends StatelessWidget {
           ),
           child: Column(
             spacing: 17.h,
-            children: const [
-              _AmountRow(
+            children: [
+              const _AmountRow(
                 label: '5 ليالي',
-                amount: '3,750 ر.س',
+                amount: '3,750 ﷼',
               ),
               _AmountRow(
-                label: 'ضريبة القيمة المضافة (15%)',
-                amount: '563 ر.س',
+                label: '${context.tr(LocaleKeys.vat)} (15%)',
+                amount: '563 ﷼',
               ),
-              DashedLineWidget(),
+              const DashedLineWidget(),
               _AmountRow(
-                label: 'المبلغ الإجمالي',
-                amount: '4,313 ر.س',
+                label: context.tr(LocaleKeys.total_amount),
+                amount: '4,313 ﷼',
                 bold: true,
               ),
             ],
