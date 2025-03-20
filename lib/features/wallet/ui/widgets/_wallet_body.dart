@@ -24,31 +24,56 @@ class _WalletBody extends StatelessWidget {
             const _SearchBar(),
             Expanded(
               child: state.wallets?.isEmpty ?? true
-                  ? const Center(child: Text('No Wallets Found'))
-                  : ListView.separated(
-                      padding: EdgeInsets.only(
-                        top: 12.h,
-                        bottom: 30.h,
-                        left: 24.w,
-                        right: 24.w,
-                      ),
-                      itemCount: state.wallets?.length ?? 0,
-                      separatorBuilder: (context, index) => verticalSpace(16),
-                      itemBuilder: (context, index) {
-                        final wallet = state.wallets![index];
-                        return WalletCardItem(
-                          key: ValueKey(wallet.id),
-                          wallet: wallet,
-                          onTap: () {
-                            context.pushNamed(Routes.walletDetailsScreen);
-                          },
-                        );
-                      },
+                  ? Center(child: Text(context.tr(LocaleKeys.empty_wallets)))
+                  : _SuccessView(
+                      wallets: state.filteredWallets ?? (state.wallets ?? []),
                     ),
             ),
           ],
         );
       },
     );
+  }
+}
+
+class _SuccessView extends StatelessWidget {
+  final List<WalletModel> wallets;
+  const _SuccessView({required this.wallets});
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.separated(
+      padding: EdgeInsets.only(
+        top: 12.h,
+        bottom: 30.h,
+        left: 24.w,
+        right: 24.w,
+      ),
+      itemCount: wallets.length,
+      separatorBuilder: (context, index) => verticalSpace(16),
+      itemBuilder: (context, index) {
+        final wallet = wallets[index];
+        return WalletCardItem(
+          key: ValueKey(wallet.id),
+          wallet: wallet,
+          onTap: () {
+            context.pushNamed(Routes.walletDetailsScreen);
+          },
+        );
+      },
+    );
+    /*
+        PagedListView(
+          pagingController: controller.pagingController,
+          builderDelegate: PagedChildBuilderDelegate<Category>(
+            firstPageProgressIndicatorBuilder: (context) {
+              return const Center(child: Loading());
+            },
+            itemBuilder: (context, category, index) {
+              return Item();
+            },
+          ),
+        )
+     */
   }
 }

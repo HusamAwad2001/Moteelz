@@ -8,7 +8,11 @@ class _CardHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return ClipRRect(
       borderRadius: BorderRadius.circular(20.r),
-      child: AppImage(path: imageUrl),
+      child: AppImage(
+        path: imageUrl,
+        height: 170.h,
+        width: double.infinity,
+      ),
     );
   }
 }

@@ -29,7 +29,13 @@ class CodegenLoader extends AssetLoader{
     "one": "{} night",
     "few": "{} nights",
     "other": "{} nights"
-  }
+  },
+  "filter": "Filter",
+  "search": "Search",
+  "country": "Country",
+  "clear_all": "Clear All",
+  "price": "Price",
+  "empty_wallets": "No wallets found"
 };
 static const Map<String,dynamic> _ar = {
   "General": {
@@ -49,7 +55,13 @@ static const Map<String,dynamic> _ar = {
     "few": "{} ليالي",
     "many": "{} ليالي",
     "other": "{} ليالي"
-  }
+  },
+  "filter": "التصفية",
+  "search": "بحث",
+  "country": "الدولة",
+  "clear_all": "محو الكل",
+  "price": "السعر",
+  "empty_wallets": "لا يوجد حسابات متاحة"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"en": _en, "ar": _ar};
 }

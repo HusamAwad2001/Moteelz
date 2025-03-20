@@ -6,6 +6,7 @@ import 'package:moteelz/core/config/routing/routes.dart';
 import 'package:moteelz/core/config/theming/colors.dart';
 import 'package:moteelz/core/config/theming/styles.dart';
 import 'package:moteelz/core/di/dependency_injection.dart';
+import 'package:moteelz/core/helpers/extensions/context_extensions.dart';
 import 'package:moteelz/core/helpers/extensions/navigations_extensions.dart';
 import 'package:moteelz/core/helpers/spacing.dart';
 import 'package:moteelz/core/helpers/strings/app_icons.dart';
@@ -42,6 +43,7 @@ class WalletScreen extends StatelessWidget {
     return BlocProvider(
       create: (context) => getIt<WalletCubit>()..getWallet(),
       child: const Scaffold(
+        resizeToAvoidBottomInset: false,
         backgroundColor: ColorsManager.greyFC,
         body: _WalletBody(),
         floatingActionButton: _FilterButton(),

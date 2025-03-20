@@ -16,7 +16,6 @@ class _NightSelection extends StatelessWidget {
           'اختر عدد الليالي :',
           style: TextStyles.font14DarkBlueSemiBold,
         ),
-        verticalSpace(8),
         Row(
           crossAxisAlignment: CrossAxisAlignment.baseline,
           textBaseline: TextBaseline.alphabetic,

@@ -13,7 +13,10 @@ class _PriceFilter extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text('السعر', style: TextStyles.font16BlackMedium),
+        Text(
+          context.tr(LocaleKeys.price),
+          style: TextStyles.font16BlackMedium,
+        ),
         verticalSpace(16),
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 9.w),
@@ -28,8 +31,8 @@ class _PriceFilter extends StatelessWidget {
         verticalSpace(4),
         RangeSlider(
           values: priceRange,
-          min: 100,
-          max: 15000,
+          min: 500,
+          max: 10000,
           onChanged: onChanged,
           activeColor: ColorsManager.primary,
           inactiveColor: ColorsManager.greyEE,

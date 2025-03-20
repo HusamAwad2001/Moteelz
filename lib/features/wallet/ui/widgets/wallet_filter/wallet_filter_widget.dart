@@ -10,10 +10,14 @@ class WalletFilterWidget extends StatefulWidget {
 class _WalletFilterWidgetState extends State<WalletFilterWidget> {
   late RangeValues _priceRange;
 
+  final items = ['الولايات المتحدة', 'مصر', 'السعودية', 'الامارات', 'قطر'];
+  // final items = <String>[];
+  String? selectedValue;
+
   @override
   void initState() {
     super.initState();
-    _priceRange = const RangeValues(100, 7500);
+    _priceRange = const RangeValues(500, 10000);
   }
 
   @override
@@ -33,17 +37,60 @@ class _WalletFilterWidgetState extends State<WalletFilterWidget> {
                 onChanged: (value) => setState(() => _priceRange = value),
               ),
               verticalSpace(16),
-              const _CountryFilter(),
+              _CountryFilter(
+                selectedValue: selectedValue ?? items[0],
+                items: items,
+                onChanged: (value) {
+                  setState(() {
+                    selectedValue = value!;
+                  });
+                },
+              ),
               verticalSpace(100),
             ],
           ),
         ),
-        AppButton(label: 'بحث', borderRadius: 0, onTap: () {}),
+        AppButton(
+          label: context.tr(LocaleKeys.search),
+          borderRadius: 0,
+          onTap: onSearch,
+        ),
       ],
     );
   }
 
   void _resetPriceRange() {
-    setState(() => _priceRange = const RangeValues(100, 7500));
+    final walletCubit = context.read<WalletCubit>();
+    walletCubit.emit(
+      walletCubit.state.copyWith(
+        wallets: walletCubit.state.wallets,
+        filteredWallets: [],
+        status: WalletStatus.success,
+      ),
+    );
+    setState(() => _priceRange = const RangeValues(500, 10000));
+  }
+
+  void onSearch() {
+    final walletCubit = context.read<WalletCubit>();
+    final filteredWallets = walletCubit.state.wallets?.where((wallet) {
+      return (wallet.price ?? 0.0) >= _priceRange.start &&
+          (wallet.price ?? 0.0) <= _priceRange.end &&
+          wallet.name == selectedValue;
+    }).toList();
+    if ((filteredWallets ?? []).isEmpty) {
+      context.pop();
+      context.showSnackbar(
+        message: context.tr(LocaleKeys.empty_wallets),
+        error: true,
+      );
+      return;
+    }
+    walletCubit.emit(
+      walletCubit.state.copyWith(
+        filteredWallets: filteredWallets,
+        status: WalletStatus.success,
+      ),
+    );
   }
 }

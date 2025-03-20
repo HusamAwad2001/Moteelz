@@ -13,5 +13,11 @@
         "one": "{} night",
         "few": "{} nights",
         "other": "{} nights"
-    }
+    },
+    "filter": "Filter",
+    "search": "Search",
+    "country": "Country",
+    "clear_all": "Clear All",
+    "price": "Price",
+    "empty_wallets": "No wallets found"
 }
