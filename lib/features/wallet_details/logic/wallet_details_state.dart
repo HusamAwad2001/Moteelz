@@ -18,12 +18,12 @@ class WalletDetailsState extends Equatable {
 
   final WalletDetailsStatus status;
   final String? message;
-  final WalletModel? wallet;
+  final WalletDetailsModel? wallet;
 
   WalletDetailsState copyWith({
     WalletDetailsStatus? status,
     String? message,
-    WalletModel? wallet,
+    WalletDetailsModel? wallet,
   }) {
     return WalletDetailsState(
       status: status ?? this.status,

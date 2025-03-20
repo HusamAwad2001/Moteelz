@@ -1,7 +1,7 @@
 part of '../../wallet_details_screen.dart';
 
 class _CardDescription extends StatelessWidget {
-  final WalletModel wallet;
+  final WalletDetailsModel wallet;
   const _CardDescription(this.wallet);
 
   @override

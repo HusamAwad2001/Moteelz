@@ -1,7 +1,7 @@
 part of '../../wallet_details_screen.dart';
 
 class _DetailsView extends StatefulWidget {
-  final WalletModel wallet;
+  final WalletDetailsModel wallet;
   final Function() onContinue;
   const _DetailsView({required this.wallet, required this.onContinue});
 

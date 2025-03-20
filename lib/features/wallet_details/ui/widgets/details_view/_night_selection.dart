@@ -4,7 +4,7 @@ part of '../../wallet_details_screen.dart';
 class _NightSelection extends StatelessWidget {
   int selectedNightIndex;
   final Function(int index) onSelected;
-  final WalletModel wallet;
+  final WalletDetailsModel wallet;
 
   _NightSelection({
     required this.selectedNightIndex,
@@ -29,9 +29,9 @@ class _NightSelection extends StatelessWidget {
             Expanded(
               child: Wrap(
                 spacing: 8.w,
-                children: (wallet.days ?? []).asMap().entries.map((index) {
+                children: (wallet.numbersOfDays).asMap().entries.map((index) {
                   bool isSelected = index.key == selectedNightIndex;
-                  int value = int.parse(index.value.days ?? '0');
+                  int value = int.parse(index.value.days);
                   return isSelected
                       ? DottedBorder(
                           borderType: BorderType.RRect,

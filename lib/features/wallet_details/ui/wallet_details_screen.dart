@@ -16,7 +16,7 @@ import 'package:moteelz/core/widgets/app_image.dart';
 import 'package:moteelz/core/widgets/app_loading_widget_service.dart';
 import 'package:moteelz/core/widgets/app_text_form_field.dart';
 import 'package:moteelz/core/widgets/dashed_line_widget.dart';
-import 'package:moteelz/features/wallet/data/models/wallet/wallet_model.dart';
+import 'package:moteelz/features/wallet_details/data/models/wallet_details_model.dart';
 import 'package:moteelz/features/wallet_details/logic/wallet_details_cubit.dart';
 import 'package:moteelz/generated/localization_keys.g.dart';
 
@@ -64,7 +64,7 @@ class _WalletDetailsScreenState extends State<WalletDetailsScreen> {
                 },
               );
             }
-            WalletModel wallet = state.wallet!;
+            WalletDetailsModel wallet = state.wallet!;
             return Column(
               children: [
                 _StepIndicator(currentStep: currentStep),
