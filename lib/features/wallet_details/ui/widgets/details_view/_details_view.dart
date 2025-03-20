@@ -1,15 +1,16 @@
 part of '../../wallet_details_screen.dart';
 
 class _DetailsView extends StatefulWidget {
+  final WalletModel wallet;
   final Function() onContinue;
-  const _DetailsView({required this.onContinue});
+  const _DetailsView({required this.wallet, required this.onContinue});
 
   @override
   State<_DetailsView> createState() => _DetailsViewState();
 }
 
 class _DetailsViewState extends State<_DetailsView> {
-  int selectedNightIndex = 1;
+  int selectedNightIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -20,10 +21,11 @@ class _DetailsViewState extends State<_DetailsView> {
           padding: EdgeInsets.symmetric(vertical: 32.h, horizontal: 16.w),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
+            spacing: 16.h,
             children: [
-              const _CardPreview(),
-              verticalSpace(16),
+              _CardPreview(widget.wallet),
               _NightSelection(
+                wallet: widget.wallet,
                 selectedNightIndex: selectedNightIndex,
                 onSelected: (index) {
                   setState(() {
@@ -31,11 +33,9 @@ class _DetailsViewState extends State<_DetailsView> {
                   });
                 },
               ),
-              verticalSpace(16),
-              const _CardDescription(),
-              verticalSpace(16),
+              _CardDescription(widget.wallet),
               const _CardFeatures(),
-              verticalSpace(45),
+              verticalSpace(30),
             ],
           ),
         ),

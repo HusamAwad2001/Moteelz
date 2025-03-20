@@ -20,5 +20,7 @@ abstract class  LocaleKeys {
   static const price = 'price';
   static const empty_wallets = 'empty_wallets';
   static const empty_countries = 'empty_countries';
+  static const number_of_nights = 'number_of_nights';
+  static const card_description = 'card_description';
 
 }

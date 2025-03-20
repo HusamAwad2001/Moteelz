@@ -4,7 +4,13 @@ part of '../../wallet_details_screen.dart';
 class _NightSelection extends StatelessWidget {
   int selectedNightIndex;
   final Function(int index) onSelected;
-  _NightSelection({required this.selectedNightIndex, required this.onSelected});
+  final WalletModel wallet;
+
+  _NightSelection({
+    required this.selectedNightIndex,
+    required this.onSelected,
+    required this.wallet,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +19,7 @@ class _NightSelection extends StatelessWidget {
       spacing: 8.h,
       children: [
         Text(
-          'اختر عدد الليالي :',
+          context.tr(LocaleKeys.number_of_nights),
           style: TextStyles.font14DarkBlueSemiBold,
         ),
         Row(
@@ -23,9 +29,9 @@ class _NightSelection extends StatelessWidget {
             Expanded(
               child: Wrap(
                 spacing: 8.w,
-                children: [5, 15, 30].asMap().entries.map((index) {
+                children: (wallet.days ?? []).asMap().entries.map((index) {
                   bool isSelected = index.key == selectedNightIndex;
-                  int value = index.value;
+                  int value = int.parse(index.value.days ?? '0');
                   return isSelected
                       ? DottedBorder(
                           borderType: BorderType.RRect,
@@ -43,7 +49,7 @@ class _NightSelection extends StatelessWidget {
                               borderRadius: BorderRadius.circular(8.r),
                             ),
                             child: Text(
-                              '$value ${value < 11 ? 'ليالي' : 'ليلة'}',
+                              context.tr(LocaleKeys.nights.plural(value)),
                               style: TextStyles.font12Black38Medium.copyWith(
                                 color: ColorsManager.primary,
                               ),
@@ -65,7 +71,7 @@ class _NightSelection extends StatelessWidget {
                               ),
                             ),
                             child: Text(
-                              '$value ${value < 11 ? 'ليالي' : 'ليلة'}',
+                              context.tr(LocaleKeys.nights.plural(value)),
                               style: TextStyles.font12Black38Medium,
                             ),
                           ),
@@ -74,7 +80,7 @@ class _NightSelection extends StatelessWidget {
               ),
             ),
             Text(
-              '3,750 ر.س',
+              '${wallet.price} ﷼',
               style: TextStyles.font20PrimaryBold,
             ),
           ],

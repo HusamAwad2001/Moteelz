@@ -1,7 +1,8 @@
 part of '../../wallet_details_screen.dart';
 
 class _CardPreview extends StatelessWidget {
-  const _CardPreview();
+  final WalletModel wallet;
+  const _CardPreview(this.wallet);
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +13,7 @@ class _CardPreview extends StatelessWidget {
         ClipRRect(
           borderRadius: BorderRadius.circular(10.r),
           child: AppImage(
-            path: AppImages.card,
+            path: wallet.walletImage ?? AppImages.appLogo,
             width: 132.w,
           ),
         ),
@@ -22,11 +23,11 @@ class _CardPreview extends StatelessWidget {
             spacing: 8.h,
             children: [
               Text(
-                'المعارض والمؤتمرات',
+                wallet.walletCategory?.name ?? '',
                 style: TextStyles.font16DarkBlueBold,
               ),
               Text(
-                '#الأعمال',
+                '#${wallet.name}',
                 style: TextStyles.font14PrimaryBold,
               ),
             ],

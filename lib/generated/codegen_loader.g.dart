@@ -36,7 +36,9 @@ class CodegenLoader extends AssetLoader{
   "clear_all": "Clear All",
   "price": "Price",
   "empty_wallets": "No wallets found",
-  "empty_countries": "No countries found"
+  "empty_countries": "No countries found",
+  "number_of_nights": "Choose the number of nights",
+  "card_description": "Card Description"
 };
 static const Map<String,dynamic> _ar = {
   "General": {
@@ -54,8 +56,8 @@ static const Map<String,dynamic> _ar = {
     "one": "ليلة",
     "two": "ليلتين",
     "few": "{} ليالي",
-    "many": "{} ليالي",
-    "other": "{} ليالي"
+    "many": "{} ليلة",
+    "other": "{} ليلة"
   },
   "filter": "التصفية",
   "search": "بحث",
@@ -63,7 +65,9 @@ static const Map<String,dynamic> _ar = {
   "clear_all": "محو الكل",
   "price": "السعر",
   "empty_wallets": "لا يوجد حسابات متاحة",
-  "empty_countries": "لا يوجد دول متاحة"
+  "empty_countries": "لا يوجد دول متاحة",
+  "number_of_nights": "اختر عدد الليالي",
+  "card_description": "وصف البطاقة"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"en": _en, "ar": _ar};
 }

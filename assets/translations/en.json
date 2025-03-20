@@ -20,5 +20,7 @@
     "clear_all": "Clear All",
     "price": "Price",
     "empty_wallets": "No wallets found",
-    "empty_countries": "No countries found"
+    "empty_countries": "No countries found",
+    "number_of_nights": "Choose the number of nights",
+    "card_description": "Card Description"
 }

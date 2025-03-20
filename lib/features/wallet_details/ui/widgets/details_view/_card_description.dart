@@ -1,7 +1,8 @@
 part of '../../wallet_details_screen.dart';
 
 class _CardDescription extends StatelessWidget {
-  const _CardDescription();
+  final WalletModel wallet;
+  const _CardDescription(this.wallet);
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +22,7 @@ class _CardDescription extends StatelessWidget {
           Padding(
             padding: EdgeInsetsDirectional.only(start: 8.w),
             child: Text(
-              'وصف البطاقة',
+              context.tr(LocaleKeys.card_description),
               style: TextStyles.font16DarkBlueSemiBold,
             ),
           ),
