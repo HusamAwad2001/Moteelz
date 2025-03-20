@@ -11,7 +11,6 @@ class _WalletFilterWidgetState extends State<WalletFilterWidget> {
   late RangeValues _priceRange;
 
   final items = ['الولايات المتحدة', 'مصر', 'السعودية', 'الامارات', 'قطر'];
-  // final items = <String>[];
   String? selectedValue;
 
   @override
@@ -69,6 +68,7 @@ class _WalletFilterWidgetState extends State<WalletFilterWidget> {
       ),
     );
     setState(() => _priceRange = const RangeValues(500, 10000));
+    context.pop();
   }
 
   void onSearch() {
@@ -86,8 +86,10 @@ class _WalletFilterWidgetState extends State<WalletFilterWidget> {
       );
       return;
     }
+    context.pop();
     walletCubit.emit(
       walletCubit.state.copyWith(
+        wallets: walletCubit.state.wallets,
         filteredWallets: filteredWallets,
         status: WalletStatus.success,
       ),

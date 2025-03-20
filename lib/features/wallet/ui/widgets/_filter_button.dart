@@ -9,12 +9,14 @@ class _FilterButton extends StatelessWidget {
       builder: (context, state) {
         if (state.isSuccess && (state.wallets?.isNotEmpty ?? false)) {
           return GestureDetector(
-            onTap: () => AppDialog.show(context,
-                padding: EdgeInsets.zero,
-                content: BlocProvider.value(
-                  value: getIt<WalletCubit>(),
-                  child: const WalletFilterWidget(),
-                )),
+            onTap: () => AppDialog.show(
+              context,
+              padding: EdgeInsets.zero,
+              content: BlocProvider.value(
+                value: getIt<WalletCubit>(),
+                child: const WalletFilterWidget(),
+              ),
+            ),
             child: Container(
               padding: EdgeInsets.symmetric(vertical: 12.h, horizontal: 25.w),
               decoration: BoxDecoration(

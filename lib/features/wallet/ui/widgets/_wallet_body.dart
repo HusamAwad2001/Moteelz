@@ -9,8 +9,7 @@ class _WalletBody extends StatelessWidget {
       builder: (context, state) {
         if (state.isLoading || state.isInitial) {
           return const Center(child: AppLoadingWidget());
-        }
-        if (state.isFailure) {
+        } else if (state.isFailure) {
           return AppErrorWidget(
             message: state.message ??
                 context.tr(
@@ -26,7 +25,9 @@ class _WalletBody extends StatelessWidget {
               child: state.wallets?.isEmpty ?? true
                   ? Center(child: Text(context.tr(LocaleKeys.empty_wallets)))
                   : _SuccessView(
-                      wallets: state.filteredWallets ?? (state.wallets ?? []),
+                      wallets: (state.filteredWallets ?? []).isNotEmpty
+                          ? state.filteredWallets!
+                          : state.wallets ?? [],
                     ),
             ),
           ],
