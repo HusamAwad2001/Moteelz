@@ -25,5 +25,6 @@
     "empty_wallets": "لا يوجد حسابات متاحة",
     "empty_countries": "لا يوجد دول متاحة",
     "number_of_nights": "اختر عدد الليالي",
-    "card_description": "وصف البطاقة"
+    "card_description": "وصف البطاقة",
+    "card_features": "مميزات البطاقة"
 }

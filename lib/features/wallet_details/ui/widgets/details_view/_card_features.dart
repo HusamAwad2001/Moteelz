@@ -1,18 +1,19 @@
 part of '../../wallet_details_screen.dart';
 
 class _CardFeatures extends StatelessWidget {
-  const _CardFeatures();
+  final WalletDetailsModel wallet;
+  const _CardFeatures(this.wallet);
 
   @override
   Widget build(BuildContext context) {
-    final features = [
-      'إدارة البطاقة الخاصة بك بسهولة',
-      'إضافة رصيد الليالي بسعر خاص',
-      'الحجز في أكثر من دولة',
-      'إهداء الليالي للعائلة والأصدقاء',
-      'تثبيت الأسعار طوال فترة صلاحية البطاقة',
-      'خدمة عملاء 7/24',
-    ];
+    // final features = [
+    //   'إدارة البطاقة الخاصة بك بسهولة',
+    //   'إضافة رصيد الليالي بسعر خاص',
+    //   'الحجز في أكثر من دولة',
+    //   'إهداء الليالي للعائلة والأصدقاء',
+    //   'تثبيت الأسعار طوال فترة صلاحية البطاقة',
+    //   'خدمة عملاء 7/24',
+    // ];
 
     return Container(
       padding: EdgeInsets.symmetric(
@@ -30,7 +31,7 @@ class _CardFeatures extends StatelessWidget {
           Padding(
             padding: EdgeInsetsDirectional.only(start: 8.w),
             child: Text(
-              'مميزات البطاقة',
+              context.tr(LocaleKeys.card_features),
               style: TextStyles.font16DarkBlueSemiBold,
             ),
           ),
@@ -43,7 +44,7 @@ class _CardFeatures extends StatelessWidget {
             ),
             child: Column(
               spacing: 8.h,
-              children: features.map((value) {
+              children: wallet.walletFeatures.map((value) {
                 return Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -54,7 +55,7 @@ class _CardFeatures extends StatelessWidget {
                     horizontalSpace(4),
                     Expanded(
                       child: Text(
-                        value,
+                        value.name.trim(),
                         style: TextStyles.font14Black4EMedium,
                       ),
                     ),

@@ -22,5 +22,6 @@ abstract class  LocaleKeys {
   static const empty_countries = 'empty_countries';
   static const number_of_nights = 'number_of_nights';
   static const card_description = 'card_description';
+  static const card_features = 'card_features';
 
 }

@@ -34,7 +34,9 @@ class _DetailsViewState extends State<_DetailsView> {
                 },
               ),
               _CardDescription(widget.wallet),
-              const _CardFeatures(),
+              if (widget.wallet.walletFeatures.isNotEmpty) ...[
+                _CardFeatures(widget.wallet),
+              ],
               verticalSpace(30),
             ],
           ),

@@ -38,7 +38,8 @@ class CodegenLoader extends AssetLoader{
   "empty_wallets": "No wallets found",
   "empty_countries": "No countries found",
   "number_of_nights": "Choose the number of nights",
-  "card_description": "Card Description"
+  "card_description": "Card Description",
+  "card_features": "Card features"
 };
 static const Map<String,dynamic> _ar = {
   "General": {
@@ -67,7 +68,8 @@ static const Map<String,dynamic> _ar = {
   "empty_wallets": "لا يوجد حسابات متاحة",
   "empty_countries": "لا يوجد دول متاحة",
   "number_of_nights": "اختر عدد الليالي",
-  "card_description": "وصف البطاقة"
+  "card_description": "وصف البطاقة",
+  "card_features": "مميزات البطاقة"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"en": _en, "ar": _ar};
 }
