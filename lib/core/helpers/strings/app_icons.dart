@@ -7,4 +7,5 @@ abstract class AppIcons {
   static const String sort = '$_path/sort.svg';
   static const String arrowDown = '$_path/arrow_down.svg';
   static const String radio = '$_path/radio.svg';
+  static const String success = '$_path/success.svg';
 }
