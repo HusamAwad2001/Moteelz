@@ -1,6 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
-part 'wallet_category.g.dart';
+part '../wallet_category.g.dart';
 
 @JsonSerializable()
 class WalletCategory {

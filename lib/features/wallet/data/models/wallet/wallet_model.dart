@@ -1,9 +1,9 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:moteelz/features/wallet/data/models/features_favorites.dart';
-import 'package:moteelz/features/wallet/data/models/wallet_category.dart';
-import 'package:moteelz/features/wallet/data/models/wallet_days.dart';
+import 'package:moteelz/features/wallet/data/models/wallet/features_favorites.dart';
+import 'package:moteelz/features/wallet/data/models/wallet/wallet_category.dart';
+import 'package:moteelz/features/wallet/data/models/wallet/wallet_days.dart';
 
-part 'wallet_model.g.dart';
+part '../wallet_model.g.dart';
 
 @JsonSerializable()
 class WalletModel {

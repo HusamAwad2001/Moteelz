@@ -1,6 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
-part 'features_favorites.g.dart';
+part '../features_favorites.g.dart';
 
 @JsonSerializable()
 class FeaturesFavorites {
