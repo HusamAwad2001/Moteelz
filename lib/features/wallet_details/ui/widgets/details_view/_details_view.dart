@@ -34,7 +34,9 @@ class _DetailsViewState extends State<_DetailsView> {
                   final cubit = getIt<WalletDetailsCubit>();
                   // ignore: invalid_use_of_protected_member, invalid_use_of_visible_for_testing_member
                   cubit.emit(cubit.state.copyWith(
-                    nightSelectedIndex: selectedNightIndex,
+                    nights: int.parse(
+                      widget.wallet.numbersOfDays[selectedNightIndex].days,
+                    ),
                   ));
                 },
               ),

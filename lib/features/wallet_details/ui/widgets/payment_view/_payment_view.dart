@@ -28,7 +28,17 @@ class _PaymentView extends StatelessWidget {
         AppButton(
           label: context.tr(LocaleKeys.pay_now),
           borderRadius: 0,
-          onTap: () {},
+          onTap: () {
+            context.showSuccessDialog(
+              title: context.tr(LocaleKeys.payment_successful),
+              message: context.tr(LocaleKeys.credit_purchase_successful),
+              buttonTitle: context.tr(LocaleKeys.home_page),
+              onPressed: () {
+                context.pop();
+                context.pop();
+              },
+            );
+          },
         ),
       ],
     );

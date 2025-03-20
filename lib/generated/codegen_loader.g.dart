@@ -53,7 +53,10 @@ class CodegenLoader extends AssetLoader{
   "card_name": "Card Name",
   "card_number": "Card Number",
   "expiry_date": "Expiry Date",
-  "cvc": "CVC"
+  "cvc": "CVC",
+  "payment_successful": "Payment Successful",
+  "credit_purchase_successful": "Credit Purchase Successful",
+  "home_page": "Home Page"
 };
 static const Map<String,dynamic> _ar = {
   "General": {
@@ -97,7 +100,10 @@ static const Map<String,dynamic> _ar = {
   "card_name": "اسم البطاقة",
   "card_number": "رقم البطاقة",
   "expiry_date": "انتهاء الصلاحية",
-  "cvc": "CVC"
+  "cvc": "CVC",
+  "payment_successful": "تم الدفع",
+  "credit_purchase_successful": "تم شراء الرصيد بنجاح",
+  "home_page": "الصفحة الرئيسية"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"en": _en, "ar": _ar};
 }

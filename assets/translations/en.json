@@ -37,5 +37,8 @@
     "card_name": "Card Name",
     "card_number": "Card Number",
     "expiry_date": "Expiry Date",
-    "cvc": "CVC"
+    "cvc": "CVC",
+    "payment_successful": "Payment Successful",
+    "credit_purchase_successful": "Credit Purchase Successful",
+    "home_page": "Home Page"
 }

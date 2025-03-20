@@ -40,5 +40,8 @@
     "card_name": "اسم البطاقة",
     "card_number": "رقم البطاقة",
     "expiry_date": "انتهاء الصلاحية",
-    "cvc": "CVC"
+    "cvc": "CVC",
+    "payment_successful": "تم الدفع",
+    "credit_purchase_successful": "تم شراء الرصيد بنجاح",
+    "home_page": "الصفحة الرئيسية"
 }

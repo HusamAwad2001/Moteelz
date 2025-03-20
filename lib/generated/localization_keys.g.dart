@@ -37,5 +37,8 @@ abstract class  LocaleKeys {
   static const card_number = 'card_number';
   static const expiry_date = 'expiry_date';
   static const cvc = 'cvc';
+  static const payment_successful = 'payment_successful';
+  static const credit_purchase_successful = 'credit_purchase_successful';
+  static const home_page = 'home_page';
 
 }

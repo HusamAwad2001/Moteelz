@@ -14,28 +14,28 @@ class WalletDetailsState extends Equatable {
     required this.status,
     this.message,
     this.wallet,
-    this.nightSelectedIndex,
+    this.nights,
   });
 
   final WalletDetailsStatus status;
   final String? message;
   final WalletDetailsModel? wallet;
-  final int? nightSelectedIndex;
+  final int? nights;
 
   WalletDetailsState copyWith({
     WalletDetailsStatus? status,
     String? message,
     WalletDetailsModel? wallet,
-    int? nightSelectedIndex,
+    int? nights,
   }) {
     return WalletDetailsState(
       status: status ?? this.status,
       message: message ?? this.message,
       wallet: wallet ?? this.wallet,
-      nightSelectedIndex: nightSelectedIndex ?? this.nightSelectedIndex,
+      nights: nights ?? nights,
     );
   }
 
   @override
-  List<Object?> get props => [status, message, wallet, nightSelectedIndex];
+  List<Object?> get props => [status, message, wallet, nights];
 }

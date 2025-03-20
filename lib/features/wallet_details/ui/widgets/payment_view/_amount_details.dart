@@ -52,24 +52,35 @@ class _AmountDetails extends StatelessWidget {
             borderRadius: BorderRadius.circular(10.r),
             border: Border.all(color: ColorsManager.greyF4),
           ),
-          child: Column(
-            spacing: 17.h,
-            children: [
-              const _AmountRow(
-                label: '5 ليالي',
-                amount: '3,750 ﷼',
-              ),
-              _AmountRow(
-                label: '${context.tr(LocaleKeys.vat)} (15%)',
-                amount: '563 ﷼',
-              ),
-              const DashedLineWidget(),
-              _AmountRow(
-                label: context.tr(LocaleKeys.total_amount),
-                amount: '4,313 ﷼',
-                bold: true,
-              ),
-            ],
+          child: Builder(
+            builder: (_) {
+              final cubit = context.read<WalletDetailsCubit>();
+              int nights = 5;
+              double price = cubit.state.wallet?.price ?? 1;
+              double taxPercent = (cubit.state.wallet?.taxPercent ?? 1) / 100;
+              double value = price * taxPercent;
+              double total = price + value;
+              return Column(
+                spacing: 17.h,
+                children: [
+                  _AmountRow(
+                    label: context.tr(LocaleKeys.nights.plural(nights)),
+                    amount: '$price ﷼',
+                  ),
+                  _AmountRow(
+                    label:
+                        '${context.tr(LocaleKeys.vat)} (${cubit.state.wallet?.taxPercent.toStringAsFixed(1)}%)',
+                    amount: '${value.toStringAsFixed(1)} ﷼',
+                  ),
+                  const DashedLineWidget(),
+                  _AmountRow(
+                    label: context.tr(LocaleKeys.total_amount),
+                    amount: '${total.toStringAsFixed(1)} ﷼',
+                    bold: true,
+                  ),
+                ],
+              );
+            },
           ),
         ),
       ],

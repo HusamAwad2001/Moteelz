@@ -7,6 +7,7 @@ abstract class AppDialog {
     required Widget content,
     Color? backgroundColor,
     double borderRadius = 20,
+    double? width,
     bool isDismissible = true,
     EdgeInsetsGeometry? padding,
   }) {
@@ -25,7 +26,7 @@ abstract class AppDialog {
             padding: padding ??
                 EdgeInsets.symmetric(vertical: 24.h, horizontal: 16.w),
             child: SizedBox(
-              width: double.infinity,
+              width: width ?? double.infinity,
               child: content,
             ),
           ),
