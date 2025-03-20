@@ -11,5 +11,14 @@ abstract class  LocaleKeys {
   static const General_connectionError = 'General.connectionError';
   static const General_unknownError = 'General.unknownError';
   static const General = 'General';
+  static const start_price = 'start_price';
+  static const nights = 'nights';
+  static const filter = 'filter';
+  static const search = 'search';
+  static const country = 'country';
+  static const clear_all = 'clear_all';
+  static const price = 'price';
+  static const empty_wallets = 'empty_wallets';
+  static const empty_countries = 'empty_countries';
 
 }

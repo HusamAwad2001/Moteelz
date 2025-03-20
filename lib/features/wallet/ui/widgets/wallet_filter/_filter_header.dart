@@ -9,11 +9,14 @@ class _PriceHeader extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text('التصفية', style: TextStyles.font18DarkBlue2SemiBold),
+        Text(
+          context.tr(LocaleKeys.filter),
+          style: TextStyles.font18DarkBlue2SemiBold,
+        ),
         GestureDetector(
           onTap: onReset,
           child: Text(
-            'محو الكل',
+            context.tr(LocaleKeys.clear_all),
             style: TextStyles.font16PrimaryBold.copyWith(
               decoration: TextDecoration.underline,
             ),

@@ -1,7 +1,8 @@
 part of '../../wallet_screen.dart';
 
 class WalletFilterWidget extends StatefulWidget {
-  const WalletFilterWidget({super.key});
+  final List<String>? countries;
+  const WalletFilterWidget({super.key, required this.countries});
 
   @override
   State<WalletFilterWidget> createState() => _WalletFilterWidgetState();
@@ -10,10 +11,13 @@ class WalletFilterWidget extends StatefulWidget {
 class _WalletFilterWidgetState extends State<WalletFilterWidget> {
   late RangeValues _priceRange;
 
+  final items = ['مصر', 'السعودية', 'الامارات', 'قطر'];
+  String? selectedValue;
+
   @override
   void initState() {
     super.initState();
-    _priceRange = const RangeValues(100, 7500);
+    _priceRange = const RangeValues(500, 10000);
   }
 
   @override
@@ -33,17 +37,66 @@ class _WalletFilterWidgetState extends State<WalletFilterWidget> {
                 onChanged: (value) => setState(() => _priceRange = value),
               ),
               verticalSpace(16),
-              const _CountryFilter(),
+              _CountryFilter(
+                selectedValue:
+                    selectedValue ?? widget.countries?[0] ?? items[0],
+                items: widget.countries ?? items,
+                onChanged: (value) {
+                  setState(() {
+                    selectedValue = value!;
+                  });
+                },
+              ),
               verticalSpace(100),
             ],
           ),
         ),
-        AppButton(label: 'بحث', borderRadius: 0, onTap: () {}),
+        AppButton(
+          label: context.tr(LocaleKeys.search),
+          borderRadius: 0,
+          onTap: onFilter,
+        ),
       ],
     );
   }
 
   void _resetPriceRange() {
-    setState(() => _priceRange = const RangeValues(100, 7500));
+    final walletCubit = context.read<WalletCubit>();
+    // ignore: invalid_use_of_visible_for_testing_member, invalid_use_of_protected_member
+    walletCubit.emit(
+      walletCubit.state.copyWith(
+        wallets: walletCubit.state.wallets,
+        filteredWallets: [],
+        status: WalletStatus.success,
+      ),
+    );
+    setState(() => _priceRange = const RangeValues(500, 10000));
+    context.pop();
+  }
+
+  void onFilter() {
+    final walletCubit = context.read<WalletCubit>();
+    final filteredWallets = walletCubit.state.wallets?.where((wallet) {
+      return (wallet.price ?? 0.0) >= _priceRange.start &&
+          (wallet.price ?? 0.0) <= _priceRange.end &&
+          wallet.name == selectedValue;
+    }).toList();
+    if ((filteredWallets ?? []).isEmpty) {
+      context.pop();
+      context.showSnackbar(
+        message: context.tr(LocaleKeys.empty_wallets),
+        error: true,
+      );
+      return;
+    }
+    context.pop();
+    // ignore: invalid_use_of_visible_for_testing_member, invalid_use_of_protected_member
+    walletCubit.emit(
+      walletCubit.state.copyWith(
+        wallets: walletCubit.state.wallets,
+        filteredWallets: filteredWallets,
+        status: WalletStatus.success,
+      ),
+    );
   }
 }

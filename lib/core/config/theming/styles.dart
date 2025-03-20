@@ -21,6 +21,10 @@ abstract class TextStyles {
     fontSize: 14.sp,
     color: ColorsManager.black3D,
   );
+  static TextStyle font14WhiteMedium = font16WhiteSemiBold.copyWith(
+    fontSize: 14.sp,
+    fontWeight: FontWeightHelper.medium,
+  );
   static TextStyle font14DarkBlueSemiBold = font16DarkBlueBold.copyWith(
     fontSize: 14.sp,
     fontWeight: FontWeightHelper.semiBold,
@@ -60,6 +64,10 @@ abstract class TextStyles {
   );
   static TextStyle font16Grey90Medium = font14Grey90Medium.copyWith(
     fontSize: 16.sp,
+  );
+  static TextStyle font16Grey8DSemiBold = font16Grey90Medium.copyWith(
+    color: ColorsManager.grey8D,
+    fontWeight: FontWeightHelper.semiBold,
   );
   static TextStyle font18WhiteBold = TextStyle(
     color: ColorsManager.white,
@@ -114,5 +122,10 @@ abstract class TextStyles {
   static TextStyle font11WhiteMedium = font14WhiteBold.copyWith(
     fontSize: 11.sp,
     fontWeight: FontWeightHelper.medium,
+  );
+  static TextStyle font18Black16SemiBold = TextStyle(
+    color: ColorsManager.black16,
+    fontSize: 18.sp,
+    fontWeight: FontWeightHelper.semiBold,
   );
 }

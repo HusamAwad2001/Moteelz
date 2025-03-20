@@ -1,8 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:easy_localization/easy_localization.dart';
 
-import '../../../generated/localization_keys.g.dart';
-import 'api_error_model.dart';
+import 'package:moteelz/generated/localization_keys.g.dart';
+import 'package:moteelz/core/networking/errors/api_error_model.dart';
 
 class ServerException implements Exception {
   final ApiErrorModel apiErrorModel;

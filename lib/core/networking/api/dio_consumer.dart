@@ -2,10 +2,10 @@ import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
-import '../errors/api_error_handler.dart';
-import 'api_consumer.dart';
-import 'api_interceptors.dart';
-import 'end_points.dart';
+import 'package:moteelz/core/networking/errors/api_error_handler.dart';
+import 'package:moteelz/core/networking/api/api_consumer.dart';
+import 'package:moteelz/core/networking/api/api_interceptors.dart';
+import 'package:moteelz/core/networking/api/end_points.dart';
 
 const int _requestTimeout = 30;
 

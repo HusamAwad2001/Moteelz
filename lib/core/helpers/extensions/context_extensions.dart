@@ -1,7 +1,15 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import '../../widgets/app_loading_widget_service.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:moteelz/core/config/theming/colors.dart';
+import 'package:moteelz/core/config/theming/styles.dart';
+import 'package:moteelz/core/helpers/spacing.dart';
+import 'package:moteelz/core/helpers/strings/app_icons.dart';
+import 'package:moteelz/core/widgets/app_button.dart';
+import 'package:moteelz/core/widgets/app_dialog.dart';
+import 'package:moteelz/core/widgets/app_image.dart';
+import 'package:moteelz/core/widgets/app_loading_widget_service.dart';
 
 extension ContextExtensions on BuildContext {
   void showLoading() => AppLoadingWidgetService.showLoading(this);
@@ -24,6 +32,62 @@ extension ContextExtensions on BuildContext {
         duration: duration,
         margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+      ),
+    );
+  }
+
+  void showSuccessDialog({
+    required String title,
+    required String message,
+    required String buttonTitle,
+    required VoidCallback onPressed,
+  }) {
+    AppDialog.show(
+      this,
+      padding: EdgeInsets.zero,
+      content: Container(
+        padding: EdgeInsets.symmetric(
+          vertical: 24.w,
+          horizontal: 10.w,
+        ),
+        decoration: BoxDecoration(
+          gradient: const LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [
+              Color(0xFFE6DDFF),
+              Color(0xFFFBFBFB),
+            ],
+          ),
+          border: Border.all(
+            color: ColorsManager.white,
+            width: 3,
+          ),
+        ),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          spacing: 8.h,
+          children: [
+            AppImage(path: AppIcons.success, width: 64.w),
+            verticalSpace(8),
+            Text(
+              title,
+              style: TextStyles.font18Black16SemiBold,
+            ),
+            Text(
+              message,
+              style: TextStyles.font16Grey8DSemiBold,
+            ),
+            verticalSpace(8),
+            AppButton(
+              label: buttonTitle,
+              width: 120.w,
+              vPadding: 12,
+              textStyle: TextStyles.font14WhiteMedium,
+              onTap: onPressed,
+            ),
+          ],
+        ),
       ),
     );
   }

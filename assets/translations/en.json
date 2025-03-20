@@ -7,5 +7,18 @@
         "canceledRequest": "Request has been canceled.",
         "connectionError": "No internet connection detected. Please check your connection.",
         "unknownError": "Something went wrong. Please try again."
-    }
+    },
+    "start_price": "Price starts from: ",
+    "nights": {
+        "one": "{} night",
+        "few": "{} nights",
+        "other": "{} nights"
+    },
+    "filter": "Filter",
+    "search": "Search",
+    "country": "Country",
+    "clear_all": "Clear All",
+    "price": "Price",
+    "empty_wallets": "No wallets found",
+    "empty_countries": "No countries found"
 }

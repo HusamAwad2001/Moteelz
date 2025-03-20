@@ -16,6 +16,7 @@ abstract class ColorsManager {
   static const Color greyFF = Color(0xFFEAF1F4);
   static const Color grey9C = Color(0xFF9C9C9C);
   static const Color greyAF = Color(0xFFAFAFAF);
+  static const Color grey8D = Color(0xFF8D8D8D);
   static const Color white = Colors.white;
   static const Color whiteE3 = Color(0xFFE3E3E3);
   static const Color darkBlue = Color(0xFF2D3263);
@@ -27,6 +28,7 @@ abstract class ColorsManager {
   static const Color black38 = Color(0xFF383838);
   static const Color black1E = Color(0xFF1E1E1E);
   static const Color black3D = Color(0xFF3D3D3D);
+  static const Color black16 = Color(0xFF161B33);
   static const Color red = Color(0xFFAC0054);
   static const Color redLight = Color(0xFFF5E0EA);
   static const Color transparent = Colors.transparent;
