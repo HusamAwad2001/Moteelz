@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:moteelz/features/wallet/data/models/wallet_model.dart';
+import 'package:moteelz/features/wallet/data/models/wallet/wallet_model.dart';
 import 'package:moteelz/features/wallet/data/repos/wallets_repo.dart';
 
 part 'wallet_state.dart';

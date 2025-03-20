@@ -3,7 +3,7 @@ import 'package:moteelz/core/networking/api/api_consumer.dart';
 import 'package:moteelz/core/networking/api/end_points.dart';
 import 'package:moteelz/core/networking/errors/api_error_handler.dart';
 import 'package:moteelz/core/networking/errors/api_error_model.dart';
-import 'package:moteelz/features/wallet/data/models/wallet_model.dart';
+import 'package:moteelz/features/wallet/data/models/wallet/wallet_model.dart';
 import 'package:moteelz/features/wallet/data/repos/wallets_repo.dart';
 
 class WalletsRepoImpl implements WalletsRepo {

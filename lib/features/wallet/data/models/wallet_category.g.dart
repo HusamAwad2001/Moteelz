@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'wallet_category.dart';
+part of 'wallet/wallet_category.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
