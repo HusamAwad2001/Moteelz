@@ -24,7 +24,7 @@ class WalletCardItem extends StatelessWidget {
             _CardHeader(wallet.walletImage ?? AppImages.appLogo),
             _CardDetails(
               name: wallet.name ?? '',
-              number: wallet.numbersOfDays?.length.toString() ?? '0',
+              number: wallet.days?.length.toString() ?? '0',
             ),
             if (wallet.featuresFavorites?.isNotEmpty ?? false) ...[
               _CardFeatures(features: wallet.featuresFavorites!),

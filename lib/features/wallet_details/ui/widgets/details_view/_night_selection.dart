@@ -29,8 +29,7 @@ class _NightSelection extends StatelessWidget {
             Expanded(
               child: Wrap(
                 spacing: 8.w,
-                children:
-                    (wallet.numbersOfDays ?? []).asMap().entries.map((index) {
+                children: (wallet.days ?? []).asMap().entries.map((index) {
                   bool isSelected = index.key == selectedNightIndex;
                   int value = int.parse(index.value.days ?? '0');
                   return isSelected

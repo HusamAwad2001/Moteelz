@@ -58,7 +58,7 @@ class _SuccessView extends StatelessWidget {
           key: ValueKey(wallet.id),
           wallet: wallet,
           onTap: () {
-            context.pushNamed(Routes.walletDetailsScreen, arguments: wallet);
+            context.pushNamed(Routes.walletDetailsScreen, arguments: wallet.id);
           },
         );
       },

@@ -3,6 +3,8 @@ import 'package:get_it/get_it.dart';
 import 'package:moteelz/features/wallet/data/repos/wallets_repo_impl.dart';
 import 'package:moteelz/features/wallet/logic/wallet_cubit.dart';
 import 'package:moteelz/core/networking/api/dio_consumer.dart';
+import 'package:moteelz/features/wallet_details/data/repos/wallet_details_repo_impl.dart';
+import 'package:moteelz/features/wallet_details/logic/wallet_details_cubit.dart';
 
 final getIt = GetIt.instance;
 
@@ -27,8 +29,11 @@ Future<void> setupGetIt() async {
     () => WalletsRepoImpl(getIt<DioConsumer>()),
   );
   getIt.registerSingleton(WalletCubit(getIt<WalletsRepoImpl>()));
-  // _registerModule<WalletsRepo, WalletCubit>(
-  //   (dioConsumer) => WalletsRepoImpl(dioConsumer),
-  //   (repo) => WalletCubit(repo),
-  // );
+  // Wallet
+  getIt.registerLazySingleton<WalletDetailsRepoImpl>(
+    () => WalletDetailsRepoImpl(getIt<DioConsumer>()),
+  );
+  getIt.registerFactory(() => WalletDetailsCubit(
+        getIt<WalletDetailsRepoImpl>(),
+      ));
 }

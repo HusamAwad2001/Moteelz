@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:moteelz/features/splash/splash_screen.dart';
 import 'package:moteelz/core/config/routing/routes.dart';
-import 'package:moteelz/features/wallet/data/models/wallet/wallet_model.dart';
 import 'package:moteelz/features/wallet/ui/wallet_screen.dart';
 import 'package:moteelz/features/wallet_details/ui/wallet_details_screen.dart';
 
@@ -19,7 +18,7 @@ class AppRouter {
       case Routes.walletDetailsScreen:
         return MaterialPageRoute(
           builder: (_) => WalletDetailsScreen(
-            wallet: settings.arguments as WalletModel,
+            id: settings.arguments as int,
           ),
         );
       default:
