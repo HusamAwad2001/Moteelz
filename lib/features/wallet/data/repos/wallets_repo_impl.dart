@@ -2,7 +2,6 @@ import 'package:dartz/dartz.dart';
 import 'package:moteelz/core/networking/api/api_consumer.dart';
 import 'package:moteelz/core/networking/api/end_points.dart';
 import 'package:moteelz/core/networking/errors/api_error_handler.dart';
-import 'package:moteelz/core/networking/errors/api_error_model.dart';
 import 'package:moteelz/features/wallet/data/models/country/country.dart';
 import 'package:moteelz/features/wallet/data/models/wallet/wallet_model.dart';
 import 'package:moteelz/features/wallet/data/repos/wallets_repo.dart';
@@ -12,7 +11,7 @@ class WalletsRepoImpl implements WalletsRepo {
   const WalletsRepoImpl(this.api);
 
   @override
-  Future<Either<ApiErrorModel, List<WalletModel>>> getWallet() async {
+  ResultOf<List<WalletModel>> getWallet() async {
     try {
       final response = await api.get(EndPoints.wallet);
       List<WalletModel> wallet = [];
@@ -26,7 +25,7 @@ class WalletsRepoImpl implements WalletsRepo {
   }
 
   @override
-  Future<Either<ApiErrorModel, List<Country>>> getCountries() async {
+  ResultOf<List<Country>> getCountries() async {
     try {
       final response = await api.get(EndPoints.countries);
       List<Country> countries = [];

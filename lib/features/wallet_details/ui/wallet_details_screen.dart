@@ -43,6 +43,13 @@ class WalletDetailsScreen extends StatefulWidget {
 
 class _WalletDetailsScreenState extends State<WalletDetailsScreen> {
   int currentStep = 0;
+  late PageController pageController;
+
+  @override
+  void initState() {
+    super.initState();
+    pageController = PageController();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -70,15 +77,23 @@ class _WalletDetailsScreenState extends State<WalletDetailsScreen> {
               children: [
                 _StepIndicator(currentStep: currentStep),
                 Expanded(
-                  child: SingleChildScrollView(
-                    child: currentStep == 0
-                        ? _DetailsView(
-                            wallet: wallet,
-                            onContinue: () => setState(() {
-                              currentStep = 1;
-                            }),
-                          )
-                        : const _PaymentView(),
+                  child: PageView(
+                    controller: pageController,
+                    physics: const NeverScrollableScrollPhysics(),
+                    children: [
+                      _DetailsView(
+                        wallet: wallet,
+                        onContinue: () => setState(() {
+                          currentStep = 1;
+                          pageController.animateToPage(
+                            1,
+                            duration: Durations.medium4,
+                            curve: Curves.easeIn,
+                          );
+                        }),
+                      ),
+                      const _PaymentView(),
+                    ],
                   ),
                 ),
               ],
