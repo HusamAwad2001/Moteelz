@@ -27,7 +27,7 @@ class _CardDescription extends StatelessWidget {
             ),
           ),
           Text(
-            wallet.description,
+            wallet.description ?? '',
             maxLines: 6,
             overflow: TextOverflow.ellipsis,
             style: TextStyles.font12Grey7BMedium,

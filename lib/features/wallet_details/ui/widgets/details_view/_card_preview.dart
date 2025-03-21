@@ -13,7 +13,7 @@ class _CardPreview extends StatelessWidget {
         ClipRRect(
           borderRadius: BorderRadius.circular(10.r),
           child: AppImage(
-            path: wallet.walletImage,
+            path: wallet.walletImage ?? AppImages.appLogo,
             width: 132.w,
           ),
         ),
@@ -23,7 +23,7 @@ class _CardPreview extends StatelessWidget {
             spacing: 8.h,
             children: [
               Text(
-                wallet.walletCategory.name,
+                wallet.walletCategory?.name ?? '',
                 style: TextStyles.font16DarkBlueBold,
               ),
               Text(

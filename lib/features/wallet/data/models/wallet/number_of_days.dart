@@ -1,23 +1,23 @@
 import 'package:json_annotation/json_annotation.dart';
 
-part 'wallet_days.g.dart';
+part 'number_of_days.g.dart';
 
 @JsonSerializable()
-class WalletDays {
+class NumberOfDays {
   final String? days;
   @JsonKey(name: 'expiry_days')
   final String? expiryDays;
   @JsonKey(name: 'expiry_date')
   final String? expiryDate;
 
-  const WalletDays({
+  const NumberOfDays({
     this.days,
     this.expiryDays,
     this.expiryDate,
   });
 
-  factory WalletDays.fromJson(Map<String, dynamic> json) =>
-      _$WalletDaysFromJson(json);
+  factory NumberOfDays.fromJson(Map<String, dynamic> json) =>
+      _$NumberOfDaysFromJson(json);
 
-  Map<String, dynamic> toJson() => _$WalletDaysToJson(this);
+  Map<String, dynamic> toJson() => _$NumberOfDaysToJson(this);
 }

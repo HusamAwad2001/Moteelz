@@ -1,17 +1,15 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'features_favorites.dart';
+part of 'feature.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-FeaturesFavorites _$FeaturesFavoritesFromJson(Map<String, dynamic> json) =>
-    FeaturesFavorites(
+Feature _$FeatureFromJson(Map<String, dynamic> json) => Feature(
       name: json['name'] as String?,
     );
 
-Map<String, dynamic> _$FeaturesFavoritesToJson(FeaturesFavorites instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$FeatureToJson(Feature instance) => <String, dynamic>{
       'name': instance.name,
     };

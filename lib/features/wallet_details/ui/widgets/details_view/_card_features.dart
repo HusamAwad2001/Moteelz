@@ -44,7 +44,7 @@ class _CardFeatures extends StatelessWidget {
             ),
             child: Column(
               spacing: 8.h,
-              children: wallet.walletFeatures.map((value) {
+              children: (wallet.walletFeatures ?? []).map((value) {
                 return Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -55,7 +55,7 @@ class _CardFeatures extends StatelessWidget {
                     horizontalSpace(4),
                     Expanded(
                       child: Text(
-                        value.name.trim(),
+                        (value.name ?? '').trim(),
                         style: TextStyles.font14Black4EMedium,
                       ),
                     ),

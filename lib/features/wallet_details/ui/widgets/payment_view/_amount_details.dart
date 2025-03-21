@@ -56,7 +56,7 @@ class _AmountDetails extends StatelessWidget {
             builder: (_) {
               final cubit = context.read<WalletDetailsCubit>();
               int nights = 5;
-              double price = cubit.state.wallet?.price ?? 1;
+              num price = cubit.state.wallet?.price ?? 1;
               double taxPercent = (cubit.state.wallet?.taxPercent ?? 1) / 100;
               double value = price * taxPercent;
               double total = price + value;
@@ -69,7 +69,7 @@ class _AmountDetails extends StatelessWidget {
                   ),
                   _AmountRow(
                     label:
-                        '${context.tr(LocaleKeys.vat)} (${cubit.state.wallet?.taxPercent.toStringAsFixed(1)}%)',
+                        '${context.tr(LocaleKeys.vat)} (${cubit.state.wallet?.taxPercent?.toStringAsFixed(1)}%)',
                     amount: '${value.toStringAsFixed(1)} ﷼',
                   ),
                   const DashedLineWidget(),

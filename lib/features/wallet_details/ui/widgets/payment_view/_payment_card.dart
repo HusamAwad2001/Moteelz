@@ -51,7 +51,7 @@ class _PaymentCardDetails extends StatelessWidget {
               children: [
                 Expanded(
                   child: Text(
-                    state.wallet?.walletCategory.name ?? '',
+                    state.wallet?.walletCategory?.name ?? '',
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                     style: TextStyles.font16DarkBlueBold.copyWith(
@@ -62,7 +62,7 @@ class _PaymentCardDetails extends StatelessWidget {
                 Builder(
                   builder: (_) {
                     int nights =
-                        int.parse(state.wallet?.numbersOfDays[0].days ?? '5');
+                        int.parse(state.wallet?.numbersOfDays?[0].days ?? '5');
                     return _TaqItem(
                       text: context.tr(
                         LocaleKeys.nights.plural(nights),

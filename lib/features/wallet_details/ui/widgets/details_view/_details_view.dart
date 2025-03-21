@@ -35,13 +35,14 @@ class _DetailsViewState extends State<_DetailsView> {
                   // ignore: invalid_use_of_protected_member, invalid_use_of_visible_for_testing_member
                   cubit.emit(cubit.state.copyWith(
                     nights: int.parse(
-                      widget.wallet.numbersOfDays[selectedNightIndex].days,
+                      widget.wallet.numbersOfDays?[selectedNightIndex].days ??
+                          '5',
                     ),
                   ));
                 },
               ),
               _CardDescription(widget.wallet),
-              if (widget.wallet.walletFeatures.isNotEmpty) ...[
+              if (widget.wallet.walletFeatures?.isNotEmpty ?? false) ...[
                 _CardFeatures(widget.wallet),
               ],
               verticalSpace(30),
