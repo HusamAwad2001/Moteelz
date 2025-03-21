@@ -23,11 +23,11 @@ class _CardPreview extends StatelessWidget {
             spacing: 8.h,
             children: [
               Text(
-                wallet.walletCategory?.name ?? '',
+                wallet.name ?? '',
                 style: TextStyles.font16DarkBlueBold,
               ),
               Text(
-                '#${wallet.name}',
+                '#${wallet.walletCategory?.name}',
                 style: TextStyles.font14PrimaryBold,
               ),
             ],

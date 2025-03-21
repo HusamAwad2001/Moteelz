@@ -23,7 +23,7 @@ class WalletCardItem extends StatelessWidget {
           children: [
             _CardHeader(wallet.walletImage ?? AppImages.appLogo),
             _CardDetails(
-              name: wallet.name ?? '',
+              name: wallet.walletCategory?.name ?? '',
               number: wallet.numbersOfDays?.length.toString() ?? '0',
             ),
             if (wallet.featuresFavorites?.isNotEmpty ?? false) ...[

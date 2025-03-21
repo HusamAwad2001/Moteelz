@@ -51,7 +51,7 @@ class _PaymentCardDetails extends StatelessWidget {
               children: [
                 Expanded(
                   child: Text(
-                    state.wallet?.walletCategory?.name ?? '',
+                    state.wallet?.name ?? '',
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                     style: TextStyles.font16DarkBlueBold.copyWith(
@@ -75,7 +75,7 @@ class _PaymentCardDetails extends StatelessWidget {
               ],
             ),
             Text(
-              '#${state.wallet?.name}',
+              '#${state.wallet?.walletCategory?.name}',
               style: TextStyles.font14Grey9CBold,
             ),
             Text(
