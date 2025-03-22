@@ -40,5 +40,6 @@
     "cvc": "CVC",
     "payment_successful": "Payment Successful",
     "credit_purchase_successful": "Credit Purchase Successful",
-    "home_page": "Home Page"
+    "home_page": "Home Page",
+    "search_for_card": "Search for a Card"
 }

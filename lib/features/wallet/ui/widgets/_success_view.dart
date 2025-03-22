@@ -43,6 +43,9 @@ class _SuccessViewState extends State<_SuccessView> {
 
   @override
   Widget build(BuildContext context) {
+    if (widget.wallets.isEmpty) {
+      return Center(child: Text(context.tr(LocaleKeys.empty_wallets)));
+    }
     return ListView.separated(
       controller: _scrollController,
       padding: EdgeInsets.only(
@@ -69,18 +72,5 @@ class _SuccessViewState extends State<_SuccessView> {
         }
       },
     );
-    /*
-        PagedListView(
-          pagingController: controller.pagingController,
-          builderDelegate: PagedChildBuilderDelegate<Category>(
-            firstPageProgressIndicatorBuilder: (context) {
-              return const Center(child: Loading());
-            },
-            itemBuilder: (context, category, index) {
-              return Item();
-            },
-          ),
-        )
-     */
   }
 }

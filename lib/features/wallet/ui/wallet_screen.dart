@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -21,6 +23,7 @@ import 'package:moteelz/features/wallet/data/models/wallet/feature.dart';
 import 'package:moteelz/features/wallet/data/models/wallet/wallet_model.dart';
 import 'package:moteelz/features/wallet/logic/wallet_cubit.dart';
 import 'package:moteelz/generated/localization_keys.g.dart';
+import 'package:rxdart/rxdart.dart';
 
 part './widgets/_wallet_body.dart';
 part './widgets/_success_view.dart';

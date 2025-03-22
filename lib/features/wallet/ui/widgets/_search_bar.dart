@@ -1,7 +1,35 @@
 part of '../wallet_screen.dart';
 
-class _SearchBar extends StatelessWidget {
-  const _SearchBar();
+class _SearchBar extends StatefulWidget {
+  final Function(String) onSearch;
+  const _SearchBar({required this.onSearch});
+
+  @override
+  State<_SearchBar> createState() => _SearchBarState();
+}
+
+class _SearchBarState extends State<_SearchBar> {
+  late final TextEditingController _searchController;
+  late final StreamController<String> _searchStreamController;
+
+  @override
+  void initState() {
+    super.initState();
+    _searchController = TextEditingController();
+    _searchStreamController = StreamController<String>();
+    _searchStreamController.stream
+        .debounceTime(const Duration(milliseconds: 500))
+        .listen((query) {
+      widget.onSearch(query);
+    });
+  }
+
+  @override
+  void dispose() {
+    _searchController.dispose();
+    _searchStreamController.close();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -19,9 +47,11 @@ class _SearchBar extends StatelessWidget {
         ],
       ),
       child: AppTextFormField(
-        hintText: 'أبحث عن بطاقة',
+        controller: _searchController,
+        hintText: context.tr(LocaleKeys.search_for_card),
         prefixSvgIcon: AppIcons.search,
         maxLines: 1,
+        onChanged: (value) => _searchStreamController.add(value),
         validator: (value) {},
       ),
     );

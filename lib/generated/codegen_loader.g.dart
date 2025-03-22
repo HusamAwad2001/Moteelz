@@ -56,7 +56,8 @@ class CodegenLoader extends AssetLoader{
   "cvc": "CVC",
   "payment_successful": "Payment Successful",
   "credit_purchase_successful": "Credit Purchase Successful",
-  "home_page": "Home Page"
+  "home_page": "Home Page",
+  "search_for_card": "Search for a Card"
 };
 static const Map<String,dynamic> _ar = {
   "General": {
@@ -82,7 +83,7 @@ static const Map<String,dynamic> _ar = {
   "country": "الدولة",
   "clear_all": "محو الكل",
   "price": "السعر",
-  "empty_wallets": "لا يوجد حسابات متاحة",
+  "empty_wallets": "لا يوجد بطاقات متاحة",
   "empty_countries": "لا يوجد دول متاحة",
   "number_of_nights": "اختر عدد الليالي",
   "card_description": "وصف البطاقة",
@@ -103,7 +104,8 @@ static const Map<String,dynamic> _ar = {
   "cvc": "CVC",
   "payment_successful": "تم الدفع",
   "credit_purchase_successful": "تم شراء الرصيد بنجاح",
-  "home_page": "الصفحة الرئيسية"
+  "home_page": "الصفحة الرئيسية",
+  "search_for_card": "ابحث عن بطاقة"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"en": _en, "ar": _ar};
 }

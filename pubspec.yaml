@@ -27,6 +27,7 @@ dependencies:
   infinite_scroll_pagination: ^4.0.0
   json_annotation: ^4.9.0
   pretty_dio_logger: ^1.4.0
+  rxdart: ^0.28.0
 
 dev_dependencies:
   build_runner: ^2.4.15

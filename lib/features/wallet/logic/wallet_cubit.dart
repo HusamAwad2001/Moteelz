@@ -14,18 +14,22 @@ class WalletCubit extends Cubit<WalletState> {
   final WalletsRepo walletsRepo;
   int _currentPage = 1;
   bool hasMore = true;
+  String? _searchQuery;
   WalletCubit(this.walletsRepo)
       : super(const WalletState(status: WalletStatus.initial));
 
-  Future<void> getWallet({bool isRefresh = false}) async {
-    if (isRefresh) {
+  Future<void> getWallet({bool isRefresh = false, String? searchQuery}) async {
+    if (isRefresh || searchQuery != _searchQuery) {
       _currentPage = 1;
       hasMore = true;
+      _searchQuery = searchQuery;
       emit(state.copyWith(status: WalletStatus.loading, wallets: []));
     } else if (_currentPage == 1) {
       emit(state.copyWith(status: WalletStatus.loading));
     }
-    final result = await walletsRepo.getWallet();
+
+    final result = await walletsRepo.getWallet(
+        page: _currentPage, searchQuery: _searchQuery);
     result.fold(
       (errorModel) {
         emit(state.copyWith(
@@ -33,10 +37,12 @@ class WalletCubit extends Cubit<WalletState> {
           message: errorModel.message,
         ));
       },
-      (wallets) {
-        hasMore = wallets.isNotEmpty;
-        List<WalletModel>? updatedWallets =
-            isRefresh ? wallets : [...(state.wallets ?? []), ...wallets];
+      (newWallets) {
+        hasMore = newWallets.isNotEmpty;
+        List<WalletModel> updatedWallets =
+            isRefresh || searchQuery != _searchQuery
+                ? newWallets
+                : [...(state.wallets ?? []), ...newWallets];
         _currentPage++;
         emit(state.copyWith(
           status: WalletStatus.success,

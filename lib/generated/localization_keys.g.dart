@@ -40,5 +40,6 @@ abstract class  LocaleKeys {
   static const payment_successful = 'payment_successful';
   static const credit_purchase_successful = 'credit_purchase_successful';
   static const home_page = 'home_page';
+  static const search_for_card = 'search_for_card';
 
 }
