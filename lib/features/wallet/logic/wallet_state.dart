@@ -22,14 +22,14 @@ class WalletState extends Equatable {
   final String? message;
   final List<WalletModel>? wallets;
   final List<WalletModel>? filteredWallets;
-  final List<CountryModel>? countries;
+  final List<Country>? countries;
 
   WalletState copyWith({
     WalletStatus? status,
     String? message,
     List<WalletModel>? wallets,
     List<WalletModel>? filteredWallets,
-    List<CountryModel>? countries,
+    List<Country>? countries,
   }) {
     return WalletState(
       status: status ?? this.status,

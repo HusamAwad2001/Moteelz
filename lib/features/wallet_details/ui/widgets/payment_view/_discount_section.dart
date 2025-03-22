@@ -8,16 +8,26 @@ class _DiscountSection extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text('هل لديك كوبون خصم؟', style: TextStyles.font16DarkBlueSemiBold),
+        Text(
+          context.tr(LocaleKeys.discount_coupon),
+          style: TextStyles.font16DarkBlueSemiBold,
+        ),
         verticalSpace(5),
         Row(
           children: [
             Expanded(
               child: AppTextFormField(
-                  hintText: 'ادخل كوبون الخصم', validator: (value) {}),
+                hintText: context.tr(LocaleKeys.enter_discount_coupon),
+                validator: (value) {},
+              ),
             ),
             SizedBox(width: 10.w),
-            AppButton(width: 90.w, vPadding: 13, label: 'تطبيق', onTap: () {}),
+            AppButton(
+              width: 90.w,
+              vPadding: 13,
+              label: context.tr(LocaleKeys.apply),
+              onTap: () {},
+            ),
           ],
         ),
       ],

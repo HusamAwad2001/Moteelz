@@ -17,7 +17,9 @@ class AppRouter {
         );
       case Routes.walletDetailsScreen:
         return MaterialPageRoute(
-          builder: (_) => const WalletDetailsScreen(),
+          builder: (_) => WalletDetailsScreen(
+            id: settings.arguments as int,
+          ),
         );
       default:
         return null;

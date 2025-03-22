@@ -19,7 +19,7 @@ class _PaymentForm extends StatelessWidget {
         spacing: 16.h,
         children: [
           Text(
-            'بيانات الدفع',
+            context.tr(LocaleKeys.payment_details),
             style: TextStyles.font16DarkBlueSemiBold,
           ),
           const _PaymentMethod(),
@@ -42,7 +42,7 @@ class _PaymentMethod extends StatelessWidget {
         horizontalSpace(4),
         Expanded(
           child: Text(
-            'بطاقة الإئتمان او الخصم المباشر',
+            context.tr(LocaleKeys.credit_or_debit_card),
             maxLines: 2,
             overflow: TextOverflow.ellipsis,
             style: TextStyles.font14Black1ERegular,
@@ -69,12 +69,12 @@ class _PaymentFields extends StatelessWidget {
       spacing: 16.h,
       children: [
         AppTextFormField(
-          title: 'اسم البطاقة',
+          title: context.tr(LocaleKeys.card_name),
           hintText: 'Nader Sayed',
           validator: (value) {},
         ),
         AppTextFormField(
-          title: 'رقم البطاقة',
+          title: context.tr(LocaleKeys.card_number),
           hintText: '1234 1234 1234 1234',
           validator: (value) {},
         ),
@@ -83,7 +83,7 @@ class _PaymentFields extends StatelessWidget {
           children: [
             Expanded(
               child: AppTextFormField(
-                title: 'انتهاء الصلاحية',
+                title: context.tr(LocaleKeys.expiry_date),
                 hintText: '25/08',
                 enabled: false,
                 validator: (value) {},
@@ -91,7 +91,7 @@ class _PaymentFields extends StatelessWidget {
             ),
             Expanded(
               child: AppTextFormField(
-                title: 'CVC',
+                title: context.tr(LocaleKeys.cvc),
                 hintText: '***',
                 maxLength: 3,
                 validator: (value) {},

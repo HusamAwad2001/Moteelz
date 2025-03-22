@@ -44,7 +44,9 @@ extension ContextExtensions on BuildContext {
   }) {
     AppDialog.show(
       this,
+      width: 250.w,
       padding: EdgeInsets.zero,
+      isDismissible: false,
       content: Container(
         padding: EdgeInsets.symmetric(
           vertical: 24.w,

@@ -1,9 +1,9 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:moteelz/features/wallet/data/models/wallet/features_favorites.dart';
+import 'package:moteelz/features/wallet/data/models/wallet/feature.dart';
 import 'package:moteelz/features/wallet/data/models/wallet/wallet_category.dart';
-import 'package:moteelz/features/wallet/data/models/wallet/wallet_days.dart';
+import 'package:moteelz/features/wallet/data/models/wallet/number_of_days.dart';
 
-part '../wallet_model.g.dart';
+part 'wallet_model.g.dart';
 
 @JsonSerializable()
 class WalletModel {
@@ -12,7 +12,7 @@ class WalletModel {
   @JsonKey(name: 'available_days')
   final int? availableDays;
   @JsonKey(name: 'numbers_of_days')
-  final List<WalletDays>? days;
+  final List<NumberOfDays>? numbersOfDays;
   final num? price;
   final String? currency;
   @JsonKey(name: 'wallet_image')
@@ -22,13 +22,13 @@ class WalletModel {
   @JsonKey(name: 'wallet_category')
   final WalletCategory? walletCategory;
   @JsonKey(name: 'features_favorites')
-  final List<FeaturesFavorites>? featuresFavorites;
+  final List<Feature>? featuresFavorites;
 
   const WalletModel({
     this.id,
     this.name,
     this.availableDays,
-    this.days,
+    this.numbersOfDays,
     this.price,
     this.currency,
     this.walletImage,

@@ -14,8 +14,8 @@
         "one": "ليلة",
         "two": "ليلتين",
         "few": "{} ليالي",
-        "many": "{} ليالي",
-        "other": "{} ليالي"
+        "many": "{} ليلة",
+        "other": "{} ليلة"
     },
     "filter": "التصفية",
     "search": "بحث",
@@ -23,5 +23,25 @@
     "clear_all": "محو الكل",
     "price": "السعر",
     "empty_wallets": "لا يوجد حسابات متاحة",
-    "empty_countries": "لا يوجد دول متاحة"
+    "empty_countries": "لا يوجد دول متاحة",
+    "number_of_nights": "اختر عدد الليالي",
+    "card_description": "وصف البطاقة",
+    "card_features": "مميزات البطاقة",
+    "continue_to_pay": "المتابعة للدفع",
+    "pay_now": "إدفع الآن",
+    "discount_coupon": "هل لديك كوبون خصم؟",
+    "enter_discount_coupon": "ادخل كوبون الخصم",
+    "apply": "تطبيق",
+    "amount_details": "تفاصيل المبلغ",
+    "vat": "ضريبة القيمة المضافة",
+    "total_amount": "المبلغ الإجمالي",
+    "payment_details": "بيانات الدفع",
+    "credit_or_debit_card": "بطاقة الإئتمان أو الخصم المباشر",
+    "card_name": "اسم البطاقة",
+    "card_number": "رقم البطاقة",
+    "expiry_date": "انتهاء الصلاحية",
+    "cvc": "CVC",
+    "payment_successful": "تم الدفع",
+    "credit_purchase_successful": "تم شراء الرصيد بنجاح",
+    "home_page": "الصفحة الرئيسية"
 }

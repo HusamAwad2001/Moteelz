@@ -1,7 +1,7 @@
 part of '../../wallet_screen.dart';
 
 class _CardFeatures extends StatelessWidget {
-  final List<FeaturesFavorites> features;
+  final List<Feature> features;
   const _CardFeatures({required this.features});
 
   @override

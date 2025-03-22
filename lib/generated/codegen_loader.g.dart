@@ -36,7 +36,27 @@ class CodegenLoader extends AssetLoader{
   "clear_all": "Clear All",
   "price": "Price",
   "empty_wallets": "No wallets found",
-  "empty_countries": "No countries found"
+  "empty_countries": "No countries found",
+  "number_of_nights": "Choose the number of nights",
+  "card_description": "Card Description",
+  "card_features": "Card features",
+  "continue_to_pay": "Continue to pay",
+  "pay_now": "Pay now",
+  "discount_coupon": "Do you have a discount coupon?",
+  "enter_discount_coupon": "Enter the discount coupon",
+  "apply": "Apply",
+  "amount_details": "Amount Details",
+  "vat": "VAT",
+  "total_amount": "Total Amount",
+  "payment_details": "Payment Details",
+  "credit_or_debit_card": "Credit or Debit Card",
+  "card_name": "Card Name",
+  "card_number": "Card Number",
+  "expiry_date": "Expiry Date",
+  "cvc": "CVC",
+  "payment_successful": "Payment Successful",
+  "credit_purchase_successful": "Credit Purchase Successful",
+  "home_page": "Home Page"
 };
 static const Map<String,dynamic> _ar = {
   "General": {
@@ -54,8 +74,8 @@ static const Map<String,dynamic> _ar = {
     "one": "ليلة",
     "two": "ليلتين",
     "few": "{} ليالي",
-    "many": "{} ليالي",
-    "other": "{} ليالي"
+    "many": "{} ليلة",
+    "other": "{} ليلة"
   },
   "filter": "التصفية",
   "search": "بحث",
@@ -63,7 +83,27 @@ static const Map<String,dynamic> _ar = {
   "clear_all": "محو الكل",
   "price": "السعر",
   "empty_wallets": "لا يوجد حسابات متاحة",
-  "empty_countries": "لا يوجد دول متاحة"
+  "empty_countries": "لا يوجد دول متاحة",
+  "number_of_nights": "اختر عدد الليالي",
+  "card_description": "وصف البطاقة",
+  "card_features": "مميزات البطاقة",
+  "continue_to_pay": "المتابعة للدفع",
+  "pay_now": "إدفع الآن",
+  "discount_coupon": "هل لديك كوبون خصم؟",
+  "enter_discount_coupon": "ادخل كوبون الخصم",
+  "apply": "تطبيق",
+  "amount_details": "تفاصيل المبلغ",
+  "vat": "ضريبة القيمة المضافة",
+  "total_amount": "المبلغ الإجمالي",
+  "payment_details": "بيانات الدفع",
+  "credit_or_debit_card": "بطاقة الإئتمان أو الخصم المباشر",
+  "card_name": "اسم البطاقة",
+  "card_number": "رقم البطاقة",
+  "expiry_date": "انتهاء الصلاحية",
+  "cvc": "CVC",
+  "payment_successful": "تم الدفع",
+  "credit_purchase_successful": "تم شراء الرصيد بنجاح",
+  "home_page": "الصفحة الرئيسية"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"en": _en, "ar": _ar};
 }

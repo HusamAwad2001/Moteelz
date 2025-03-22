@@ -14,7 +14,7 @@ class _PriceRangeBox extends StatelessWidget {
       ),
       child: FittedBox(
         child: Text(
-          '${value.toInt()} ر.س',
+          '${value.toInt()} ﷼',
           style: TextStyles.font14Black38SemiBold,
         ),
       ),

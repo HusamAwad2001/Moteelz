@@ -41,7 +41,7 @@ class _AmountDetails extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'تفاصيل المبلغ',
+          context.tr(LocaleKeys.amount_details),
           style: TextStyles.font16DarkBlueSemiBold,
         ),
         verticalSpace(8),
@@ -52,24 +52,35 @@ class _AmountDetails extends StatelessWidget {
             borderRadius: BorderRadius.circular(10.r),
             border: Border.all(color: ColorsManager.greyF4),
           ),
-          child: Column(
-            spacing: 17.h,
-            children: const [
-              _AmountRow(
-                label: '5 ليالي',
-                amount: '3,750 ر.س',
-              ),
-              _AmountRow(
-                label: 'ضريبة القيمة المضافة (15%)',
-                amount: '563 ر.س',
-              ),
-              DashedLineWidget(),
-              _AmountRow(
-                label: 'المبلغ الإجمالي',
-                amount: '4,313 ر.س',
-                bold: true,
-              ),
-            ],
+          child: Builder(
+            builder: (_) {
+              final cubit = context.read<WalletDetailsCubit>();
+              int nights = 5;
+              num price = cubit.state.wallet?.price ?? 1;
+              double taxPercent = (cubit.state.wallet?.taxPercent ?? 1) / 100;
+              double value = price * taxPercent;
+              double total = price + value;
+              return Column(
+                spacing: 17.h,
+                children: [
+                  _AmountRow(
+                    label: context.tr(LocaleKeys.nights.plural(nights)),
+                    amount: '$price ﷼',
+                  ),
+                  _AmountRow(
+                    label:
+                        '${context.tr(LocaleKeys.vat)} (${cubit.state.wallet?.taxPercent?.toStringAsFixed(1)}%)',
+                    amount: '${value.toStringAsFixed(1)} ﷼',
+                  ),
+                  const DashedLineWidget(),
+                  _AmountRow(
+                    label: context.tr(LocaleKeys.total_amount),
+                    amount: '${total.toStringAsFixed(1)} ﷼',
+                    bold: true,
+                  ),
+                ],
+              );
+            },
           ),
         ),
       ],

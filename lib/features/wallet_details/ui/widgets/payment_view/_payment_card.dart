@@ -5,27 +5,31 @@ class _PaymentCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.all(8.w),
-      decoration: BoxDecoration(
-        color: ColorsManager.white,
-        borderRadius: BorderRadius.circular(10.r),
-        border: Border.all(color: ColorsManager.greyF4),
-      ),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        spacing: 8.w,
-        children: [
-          ClipRRect(
+    return BlocBuilder<WalletDetailsCubit, WalletDetailsState>(
+      builder: (context, state) {
+        return Container(
+          padding: EdgeInsets.all(8.w),
+          decoration: BoxDecoration(
+            color: ColorsManager.white,
             borderRadius: BorderRadius.circular(10.r),
-            child: AppImage(
-              path: AppImages.card,
-              width: 132.w,
-            ),
+            border: Border.all(color: ColorsManager.greyF4),
           ),
-          const Expanded(child: _PaymentCardDetails()),
-        ],
-      ),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            spacing: 8.w,
+            children: [
+              ClipRRect(
+                borderRadius: BorderRadius.circular(10.r),
+                child: AppImage(
+                  path: state.wallet?.walletImage ?? AppImages.appLogo,
+                  width: 132.w,
+                ),
+              ),
+              const Expanded(child: _PaymentCardDetails()),
+            ],
+          ),
+        );
+      },
     );
   }
 }
@@ -35,40 +39,52 @@ class _PaymentCardDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      spacing: 2.h,
-      children: [
-        Row(
+    return BlocBuilder<WalletDetailsCubit, WalletDetailsState>(
+      builder: (context, state) {
+        return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          spacing: 2.w,
+          spacing: 2.h,
           children: [
-            Expanded(
-              child: Text(
-                'المعارض والمؤتمرات',
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis,
-                style: TextStyles.font16DarkBlueBold.copyWith(
-                  fontSize: 14.sp,
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              spacing: 2.w,
+              children: [
+                Expanded(
+                  child: Text(
+                    state.wallet?.name ?? '',
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyles.font16DarkBlueBold.copyWith(
+                      fontSize: 14.sp,
+                    ),
+                  ),
                 ),
-              ),
+                Builder(
+                  builder: (_) {
+                    int nights =
+                        int.parse(state.wallet?.numbersOfDays?[0].days ?? '5');
+                    return _TaqItem(
+                      text: context.tr(
+                        LocaleKeys.nights.plural(nights),
+                      ),
+                      color: ColorsManager.redLight,
+                      style: TextStyles.font12RedBold,
+                    );
+                  },
+                ),
+              ],
             ),
-            _TaqItem(
-              text: '5 ليالي',
-              color: ColorsManager.redLight,
-              style: TextStyles.font12RedBold,
+            Text(
+              '#${state.wallet?.walletCategory?.name}',
+              style: TextStyles.font14Grey9CBold,
+            ),
+            Text(
+              '${state.wallet?.price} ﷼',
+              style: TextStyles.font16PrimaryBold,
             ),
           ],
-        ),
-        Text(
-          '#الأعمال',
-          style: TextStyles.font14Grey9CBold,
-        ),
-        Text(
-          '3,750 ر.س',
-          style: TextStyles.font16PrimaryBold,
-        ),
-      ],
+        );
+      },
     );
   }
 }

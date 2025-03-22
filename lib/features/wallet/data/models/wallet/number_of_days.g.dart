@@ -1,18 +1,18 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'wallet/wallet_days.dart';
+part of 'number_of_days.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-WalletDays _$WalletDaysFromJson(Map<String, dynamic> json) => WalletDays(
+NumberOfDays _$NumberOfDaysFromJson(Map<String, dynamic> json) => NumberOfDays(
       days: json['days'] as String?,
       expiryDays: json['expiry_days'] as String?,
       expiryDate: json['expiry_date'] as String?,
     );
 
-Map<String, dynamic> _$WalletDaysToJson(WalletDays instance) =>
+Map<String, dynamic> _$NumberOfDaysToJson(NumberOfDays instance) =>
     <String, dynamic>{
       'days': instance.days,
       'expiry_days': instance.expiryDays,

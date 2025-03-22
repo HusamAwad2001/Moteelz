@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:moteelz/core/helpers/extensions/context_extensions.dart';
-import 'package:moteelz/features/wallet/data/models/country/country_model.dart';
+import 'package:moteelz/features/wallet/data/models/country/country.dart';
 import 'package:moteelz/features/wallet/data/models/wallet/wallet_model.dart';
 import 'package:moteelz/features/wallet/data/repos/wallets_repo.dart';
 import 'package:moteelz/generated/localization_keys.g.dart';
