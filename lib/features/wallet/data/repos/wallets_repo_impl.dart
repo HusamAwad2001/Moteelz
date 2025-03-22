@@ -11,9 +11,12 @@ class WalletsRepoImpl implements WalletsRepo {
   const WalletsRepoImpl(this.api);
 
   @override
-  ResultOf<List<WalletModel>> getWallet() async {
+  ResultOf<List<WalletModel>> getWallet({int? page}) async {
     try {
-      final response = await api.get(EndPoints.wallet);
+      final response = await api.get(
+        EndPoints.wallet,
+        queryParameters: {'page': page},
+      );
       List<WalletModel> wallet = [];
       for (var item in response[ApiKeys.data]) {
         wallet.add(WalletModel.fromJson(item));

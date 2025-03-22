@@ -28,53 +28,14 @@ class _WalletBody extends StatelessWidget {
                       wallets: (state.filteredWallets ?? []).isNotEmpty
                           ? state.filteredWallets!
                           : state.wallets ?? [],
+                      hasMore: context.read<WalletCubit>().hasMore,
+                      onLoadMore: () => context.read<WalletCubit>().getWallet(),
+                      isLoading: state.isLoading,
                     ),
             ),
           ],
         );
       },
     );
-  }
-}
-
-class _SuccessView extends StatelessWidget {
-  final List<WalletModel> wallets;
-  const _SuccessView({required this.wallets});
-
-  @override
-  Widget build(BuildContext context) {
-    return ListView.separated(
-      padding: EdgeInsets.only(
-        top: 12.h,
-        bottom: 30.h,
-        left: 24.w,
-        right: 24.w,
-      ),
-      itemCount: wallets.length,
-      separatorBuilder: (context, index) => verticalSpace(16),
-      itemBuilder: (context, index) {
-        final wallet = wallets[index];
-        return WalletCardItem(
-          key: ValueKey(wallet.id),
-          wallet: wallet,
-          onTap: () {
-            context.pushNamed(Routes.walletDetailsScreen, arguments: wallet.id);
-          },
-        );
-      },
-    );
-    /*
-        PagedListView(
-          pagingController: controller.pagingController,
-          builderDelegate: PagedChildBuilderDelegate<Category>(
-            firstPageProgressIndicatorBuilder: (context) {
-              return const Center(child: Loading());
-            },
-            itemBuilder: (context, category, index) {
-              return Item();
-            },
-          ),
-        )
-     */
   }
 }

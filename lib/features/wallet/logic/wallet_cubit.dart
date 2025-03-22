@@ -12,11 +12,19 @@ part 'wallet_state.dart';
 
 class WalletCubit extends Cubit<WalletState> {
   final WalletsRepo walletsRepo;
+  int _currentPage = 1;
+  bool hasMore = true;
   WalletCubit(this.walletsRepo)
       : super(const WalletState(status: WalletStatus.initial));
 
-  Future<void> getWallet() async {
-    emit(state.copyWith(status: WalletStatus.loading));
+  Future<void> getWallet({bool isRefresh = false}) async {
+    if (isRefresh) {
+      _currentPage = 1;
+      hasMore = true;
+      emit(state.copyWith(status: WalletStatus.loading, wallets: []));
+    } else if (_currentPage == 1) {
+      emit(state.copyWith(status: WalletStatus.loading));
+    }
     final result = await walletsRepo.getWallet();
     result.fold(
       (errorModel) {
@@ -26,9 +34,13 @@ class WalletCubit extends Cubit<WalletState> {
         ));
       },
       (wallets) {
+        hasMore = wallets.isNotEmpty;
+        List<WalletModel>? updatedWallets =
+            isRefresh ? wallets : [...(state.wallets ?? []), ...wallets];
+        _currentPage++;
         emit(state.copyWith(
           status: WalletStatus.success,
-          wallets: wallets,
+          wallets: updatedWallets,
         ));
       },
     );

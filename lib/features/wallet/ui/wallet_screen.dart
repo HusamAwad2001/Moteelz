@@ -23,6 +23,7 @@ import 'package:moteelz/features/wallet/logic/wallet_cubit.dart';
 import 'package:moteelz/generated/localization_keys.g.dart';
 
 part './widgets/_wallet_body.dart';
+part './widgets/_success_view.dart';
 part './widgets/card_item/wallet_card_item.dart';
 part './widgets/wallet_filter/wallet_filter_widget.dart';
 part './widgets/card_item/_card_header.dart';
