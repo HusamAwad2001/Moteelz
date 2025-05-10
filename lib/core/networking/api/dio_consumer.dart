@@ -11,6 +11,7 @@ const int _requestTimeout = 30;
 
 class DioConsumer extends ApiConsumer {
   final Dio dio;
+  CancelToken? _cancelToken;
 
   DioConsumer({required this.dio}) {
     dio.options.baseUrl = EndPoints.baseUrl;
@@ -27,14 +28,23 @@ class DioConsumer extends ApiConsumer {
     }
   }
 
+  void _cancelPreviousRequest() {
+    if (_cancelToken?.isCancelled == false) {
+      _cancelToken?.cancel('Request cancelled due to a new request.');
+    }
+    _cancelToken = CancelToken();
+  }
+
   @override
   Future get(String path,
       {Object? data, Map<String, dynamic>? queryParameters}) async {
+    _cancelPreviousRequest();
     try {
       final response = await dio.get(
         path,
         data: data,
         queryParameters: queryParameters,
+        cancelToken: _cancelToken,
       );
       return response.data;
     } on DioException catch (e) {
@@ -49,11 +59,13 @@ class DioConsumer extends ApiConsumer {
     Map<String, dynamic>? queryParameters,
     bool isFromData = false,
   }) async {
+    _cancelPreviousRequest();
     try {
       final response = await dio.post(
         path,
         data: isFromData ? FormData.fromMap(data) : data,
         queryParameters: queryParameters,
+        cancelToken: _cancelToken,
       );
       return response.data;
     } on DioException catch (e) {
@@ -68,11 +80,13 @@ class DioConsumer extends ApiConsumer {
     Map<String, dynamic>? queryParameters,
     bool isFromData = false,
   }) async {
+    _cancelPreviousRequest();
     try {
       final response = await dio.patch(
         path,
         data: isFromData ? FormData.fromMap(data) : data,
         queryParameters: queryParameters,
+        cancelToken: _cancelToken,
       );
       return response.data;
     } on DioException catch (e) {
@@ -87,11 +101,13 @@ class DioConsumer extends ApiConsumer {
     Map<String, dynamic>? queryParameters,
     bool isFromData = false,
   }) async {
+    _cancelPreviousRequest();
     try {
       final response = await dio.put(
         path,
         data: isFromData ? FormData.fromMap(data) : data,
         queryParameters: queryParameters,
+        cancelToken: _cancelToken,
       );
       return response.data;
     } on DioException catch (e) {
@@ -106,11 +122,13 @@ class DioConsumer extends ApiConsumer {
     Map<String, dynamic>? queryParameters,
     bool isFromData = false,
   }) async {
+    _cancelPreviousRequest();
     try {
       final response = await dio.delete(
         path,
         data: isFromData ? FormData.fromMap(data) : data,
         queryParameters: queryParameters,
+        cancelToken: _cancelToken,
       );
       return response.data;
     } on DioException catch (e) {
